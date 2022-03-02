@@ -99,7 +99,7 @@ class SaveEditor(QMainWindow, MainWindow):
             self.floor_widget.addItem(item)
 
     def open_sol(self, file_path=None):
-        if file_path is not None:
+        if file_path is (None or False):
             file_name = QFileDialog.getOpenFileName(
                 self, "请选择游戏存档文件...", filter="*.sol"
             )
@@ -298,7 +298,7 @@ class Setting(QDialog, SettingWindow):
                 self.sol_obj[key] = value
         # 单独处理save1currentfloor
         floor_value = self.sol_obj["save1nowfloor"]
-        self.sol_obj["save1currentfloor"] = abs(floor_value) + "F"
+        self.sol_obj["save1currentfloor"] = str(abs(floor_value)) + "F"
         # 单独处理状态复选框
         if self.normal_box.isChecked():
             stats_value = 0
@@ -309,6 +309,7 @@ class Setting(QDialog, SettingWindow):
         self.sol_obj["save1tostats"] = stats_value
 
     def save_sol_file(self):
+        self.write_sol_file()
         self.sol_obj.save(self.sol_file_name)
         main_window.open_sol(self.sol_file_name)
         self.close()
