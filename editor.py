@@ -1,11 +1,13 @@
 # cfw
-# 2022.3.2
-import sys
+# 2022.3.3
 import os
+import sys
+
+from pyamf import sol
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-from pyamf import sol
+
 from ui_savemain import Ui_MainWindow as MainWindow
 from ui_setting import Ui_Dialog as SettingWindow
 
@@ -23,7 +25,9 @@ class MyQLabel(QLabel):
         self.button_clicked_signal.emit()
 
     def change_map(self):
-        pic_num, ok = QInputDialog.getInt(self, "修改图块", "请输入图块编号：", int(self.toolTip()))
+        pic_num, ok = QInputDialog.getInt(
+            self, "修改图块", "请输入图块编号:(1-137)", int(self.toolTip())
+        )
         if ok:
             image_filename = str(pic_num) + ".png"
             image_path = os.path.join("images", image_filename)
@@ -94,10 +98,16 @@ class SaveEditor(QMainWindow, MainWindow):
             item.setText(self.floor_name_dict[floor_name])
             self.floor_widget.addItem(item)
 
-    def open_sol(self):
-        file_name = QFileDialog.getOpenFileName(self, "请选择游戏存档文件...", filter="*.sol")
-        if file_name[0] != "":
-            self.sol_obj = sol.load(file_name[0])
+    def open_sol(self, file_path=None):
+        if file_path is not None:
+            file_name = QFileDialog.getOpenFileName(
+                self, "请选择游戏存档文件...", filter="*.sol"
+            )
+            file_name = file_name[0]
+        else:
+            file_name = file_path
+        if file_name != "":
+            self.sol_obj = sol.load(file_name)
             f1_str = self.sol_obj["savefloor1f0"]
             self.set_floor_name()
             self.set_floor_widget()
@@ -107,10 +117,11 @@ class SaveEditor(QMainWindow, MainWindow):
             self.savefloor_button.setEnabled(True)
             self.editother_button.setEnabled(True)
             self.savefile_button.setEnabled(True)
+            self.sol_file_name = file_name
 
     def save_sol(self):
         self.save_floor()
-        self.sol_obj.save("savedata_edit.sol")
+        self.sol_obj.save(self.sol_file_name)
 
     def export_floor_str(self):
         export_str = ""
@@ -128,7 +139,7 @@ class SaveEditor(QMainWindow, MainWindow):
         self.sol_obj[floor_name] = floor_str
 
     def edit_other(self):
-        self.setwindow = Setting(self, self.sol_obj)
+        self.setwindow = Setting(self, self.sol_file_name)
         self.setwindow.exec()
 
     def destroy_wall(self):
@@ -173,65 +184,134 @@ class SaveEditor(QMainWindow, MainWindow):
         self.draw_map(f_str)
 
     def about(self):
-        QMessageBox.about(self, "关于...", "新新魔塔存档编辑器 Ver 0.5")
+        QMessageBox.about(self, "关于...", "新新魔塔存档编辑器 Ver 0.6")
 
 
 class Setting(QDialog, SettingWindow):
-    def __init__(self, parentwindow: QMainWindow, sol_obj: sol.SOL):
+    def __init__(self, parentwindow: QMainWindow, sol_file):
         super().__init__(parentwindow)
-        self.sol_obj = sol_obj
+        self.sol_obj = sol.load(sol_file)
+        self.sol_file_name = sol_file
         self.setupUi(self)
-        self.set_item_key()
+        self.setup_ui()
+        self.set_args()
         self.load_data()
 
-    def set_item_key(self):
-        self.item_dict = {
+    def setup_ui(self):
+        self.save_button.clicked.connect(self.save_sol_file)
+        self.cancel_button.clicked.connect(lambda: self.close())
+
+    def set_args(self):
+        self.key_widget_dict = {
+            # =========================================
+            # 能力值相关
+            # =========================================
             "save1lv": self.lv_edit,
             "save1hp": self.hp_edit,
             "save1at": self.atk_edit,
             "save1df": self.def_edit,
             "save1miss": self.miss_edit,
             "save1exp": self.exp_edit,
+            "save1gold": self.gold_edit,
+            # =========================================
+            # 道具相关
+            # =========================================
             "save1yellowkey": self.yellow_edit,
             "save1bluekey": self.blue_edit,
             "save1redkey": self.red_edit,
-            "save1gold": self.gold_edit,
-            "save1fly": self.fly_check,
-            "save1ddd": self.ddd_check,
-            "save1chor": self.chor_check,
             "save1nod": self.nod_edit,
             "save1nok": self.nok_edit,
             "save1bigchor": self.bigchor_edit,
+            "save1life": self.relive_edit,
+            "save1fly": self.fly_check,
+            "save1ddd": self.ddd_check,
             "save1ice": self.ice_check,
             "save1betterdf": self.magicdef_check,
-            "save1svdata": self.savename_edit,
+            "save1chor": self.chor_check,
+            "save1key": self.key_check,
+            # =========================================
+            # 存档相关
+            # =========================================
             "save1currentx": self.x_edit,
             "save1currenty": self.y_edit,
             "save1nowfloor": self.nowfloor_edit,
-            "save1tonameofstage": self.toname_edit,
-            "save1currentfloor": self.cureenfloor_edit,
+            "save1currentfloor": self.currenfloor_label,
+            "save1svdata": self.savename_edit,
+            # =========================================
+            # 战斗相关
+            # =========================================
+            "save1attimes": self.atktimes_edit,
+            "save1nearat": self.atknear_edit,
+            "save1neardf": self.defnear_edit,
+            # =========================================
+            # 商店相关
+            # =========================================
+            "save1need1": self.shop3f_edit,
+            "save1need2": self.shopb5f_edit,
+            # =========================================
         }
-        self.item_key_list = []
-        for key in self.item_dict:
-            self.item_key_list.append(key)
+        self.key_list = []
+        for key in self.key_widget_dict:
+            self.key_list.append(key)
+        # 获取状态
+        self.stats = self.sol_obj["save1tostats"]
 
     def load_data(self):
-        for key in self.item_key_list:
-            widgets = self.item_dict[key]
+        for key in self.key_list:
+            widgets = self.key_widget_dict[key]
             value = self.sol_obj[key]
             if isinstance(widgets, QLineEdit):
-                value = str(value)
+                widgets.setText(value)
+            elif isinstance(widgets, QSpinBox):
+                widgets.setValue(value)
+            elif isinstance(widgets, QLabel):
                 widgets.setText(value)
             elif isinstance(widgets, QCheckBox):
                 if value == 0:
-                    widgets.setCheckable(False)
+                    widgets.setChecked(False)
                 elif value == 1:
-                    widgets.setCheckable(True)
+                    widgets.setChecked(True)
                 else:
-                    widgets.setCheckable(False)
+                    widgets.setChecked(False)
+        if self.stats == 0:
+            self.normal_box.setChecked(True)
+        elif self.stats == 1:
+            self.poison_box.setChecked(True)
+        elif self.stats == 2:
+            self.weak_box.setChecked(True)
 
-    def save_data(self):
-        pass
+    def write_sol_file(self):
+        for key in self.key_list:
+            widgets = self.key_widget_dict[key]
+            if isinstance(widgets, QLineEdit):
+                text = widgets.text()
+                self.sol_obj[key] = text
+            elif isinstance(widgets, QSpinBox):
+                int_value = widgets.value()
+                self.sol_obj[key] = int_value
+            elif isinstance(widgets, QCheckBox):
+                bool_value = widgets.isChecked()
+                if bool_value is True:
+                    value = 1
+                elif bool_value is False:
+                    value = 0
+                self.sol_obj[key] = value
+        # 单独处理save1currentfloor
+        floor_value = self.sol_obj["save1nowfloor"]
+        self.sol_obj["save1currentfloor"] = abs(floor_value) + "F"
+        # 单独处理状态复选框
+        if self.normal_box.isChecked():
+            stats_value = 0
+        elif self.poison_box.isChecked():
+            stats_value = 1
+        elif self.weak_box.isChecked():
+            stats_value = 2
+        self.sol_obj["save1tostats"] = stats_value
+
+    def save_sol_file(self):
+        self.sol_obj.save(self.sol_file_name)
+        main_window.open_sol(self.sol_file_name)
+        self.close()
 
 
 if __name__ == "__main__":

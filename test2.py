@@ -13,4 +13,6 @@ f = sol.load(file_name)
 
 print(f)
 
-# print(f["savefloor1f0"])
+# f["save1need1"] = 3
+# f["save1maxgou"] = -24
+# f.save(file_name)
