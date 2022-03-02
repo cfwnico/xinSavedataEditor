@@ -13,6 +13,9 @@ windows11，python3.10，FlashPlayer32，新新魔塔1.42作弊版
 读取存档后如果不在右边列表选择一层楼而是直接点击保存按钮会报错并且无法保存存档文件。
   
 下载地址：  
-链接：https://pan.baidu.com/s/1Su_UJrk2nZAI2cOqR_oK3Q?pwd=0ks2 
-提取码：0ks2 
---来自百度网盘超级会员V4的分享
+链接：https://pan.baidu.com/s/17Ixyorn6AYyFyN3oTrbt8w?pwd=4mlx   
+提取码：4mlx   
+--来自百度网盘超级会员V4的分享  
+
+关于怎么找到Flash游戏存档：  
+https://www.jianshu.com/p/556f30ddfa6b
