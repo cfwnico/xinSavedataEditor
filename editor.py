@@ -5,7 +5,7 @@ import os
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-
+from pyamf import sol
 from ui_savemain import Ui_MainWindow
 
 
@@ -20,9 +20,7 @@ class MyQLabel(QLabel):
         self.button_clicked_signal.emit()
 
     def change_map(self):
-        pic_num, ok = QInputDialog.getInt(
-            self, "修改图块", "请输入图块编号：（1-255）", int(self.toolTip())
-        )
+        pic_num, ok = QInputDialog.getInt(self, "修改图块", "请输入图块编号：", int(self.toolTip()))
         if ok:
             image_filename = str(pic_num) + ".png"
             image_path = os.path.join("images", image_filename)
@@ -42,9 +40,6 @@ class SaveEditor(QMainWindow, Ui_MainWindow):
         self.setup_ui()
         self.calculate_xy()
         self.setup_label()
-        self.draw_map(
-            "58$92$59$46$10$126$28$46$60$92$54$20$92$92$10$92$126$92$28$92$92$54$60$92$126$126$92$126$126$126$131$92$54$50$92$92$126$92$126$92$126$92$92$54$126$28$126$126$126$126$126$126$126$126$36$92$18$92$18$92$126$92$92$92$126$92$126$28$126$126$126$124$126$126$126$20$126$50$92$92$92$92$126$92$126$92$92$50$59$92$61$18$126$126$126$28$57$92$20$23$92$92$126$92$126$92$46$92$92$60$59$92$61$18$126$126$126$28$56$92$125$"
-        )
 
     def calculate_xy(self):
         xy_offset = 52
@@ -70,18 +65,53 @@ class SaveEditor(QMainWindow, Ui_MainWindow):
 
     def setup_ui(self):
         self.label_bg.setPixmap(QPixmap("images/bg.png"))
-        self.import_button.clicked.connect(self.import_floor_str)
+        self.openfile_button.clicked.connect(self.open_sol)
+        self.savefile_button.clicked.connect(self.save_sol)
         self.export_button.clicked.connect(self.export_floor_str)
         self.destroy_button.clicked.connect(self.destroy_wall)
         self.replace_button.clicked.connect(self.replace_map_pic)
         self.about_button.clicked.connect(self.about)
+        self.editother_button.clicked.connect(self.edit_other)
+        self.floor_widget.itemClicked.connect(self.chage_selectmap)
 
-    def import_floor_str(self):
-        floor_str, ok = QInputDialog.getText(self, "导入", "请输入存档楼层sol字符串：")
-        if ok:
-            self.draw_map(floor_str)
-        else:
-            return
+    def set_floor_name(self):
+        self.floor_name_dict = {}
+        self.floor_name_list = []
+        for i in range(21):
+            self.floor_name_dict[f"savefloor1f{i}"] = f"{i}F"
+            self.floor_name_list.append(f"savefloor1f{i}")
+        for i in range(1, 26):
+            self.floor_name_dict[f"savebfloor1f{i}"] = f"B{i}F"
+            self.floor_name_list.append(f"savebfloor1f{i}")
+        for i in range(1, 11):
+            self.floor_name_dict[f"saveofloor1f{i}"] = f"魔塔{i}F"
+            self.floor_name_list.append(f"saveofloor1f{i}")
+
+    def set_floor_widget(self):
+        for floor_name in self.floor_name_dict:
+            item = QListWidgetItem()
+            item.setText(self.floor_name_dict[floor_name])
+            self.floor_widget.addItem(item)
+
+    def open_sol(self):
+        file_name = QFileDialog.getOpenFileName(self, "请选择游戏存档文件...", filter="*.sol")
+        if file_name[0] != "":
+            self.f = sol.load(file_name[0])
+            f1_str = self.f["savefloor1f0"]
+            self.set_floor_name()
+            self.set_floor_widget()
+            self.draw_map(f1_str)
+            self.destroy_button.setEnabled(True)
+            self.replace_button.setEnabled(True)
+            self.export_button.setEnabled(True)
+            self.editother_button.setEnabled(True)
+            self.savefile_button.setEnabled(True)
+
+    def save_sol(self):
+        self.f.save("savedata_edit.sol")
+
+    def edit_other(self):
+        print("edit other func")
 
     def export_floor_str(self):
         export_str = ""
@@ -90,7 +120,6 @@ class SaveEditor(QMainWindow, Ui_MainWindow):
             text = text + "$"
             export_str = export_str + text
         print(export_str)
-        return export_str
 
     def destroy_wall(self):
         for label_widget in self.label_list:
@@ -126,8 +155,17 @@ class SaveEditor(QMainWindow, Ui_MainWindow):
                 label_widget.setPixmap(QPixmap("images/missing.png"))
             label_widget.setToolTip(text)
 
+    def chage_selectmap(self):
+        print("chage_selectmap func")
+        selcet_item = self.floor_widget.selectedItems()[0]
+        item_index = self.floor_widget.row(selcet_item)
+        floor_name = self.floor_name_list[item_index]
+        # floor_name_str=self.floor_name_dict[floor_name]
+        f_str = self.f[floor_name]
+        self.draw_map(f_str)
+
     def about(self):
-        QMessageBox.about(self, "关于...", "新新魔塔存档编辑器 Ver 0.1")
+        QMessageBox.about(self, "关于...", "新新魔塔存档编辑器 Ver 0.2")
 
 
 if __name__ == "__main__":
