@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'settingpZovlU.ui'
+## Form generated from reading UI file 'settingaZbPhA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -182,45 +182,46 @@ class Ui_Dialog(object):
         self.lv_edit = QSpinBox(self.groupBox)
         self.lv_edit.setObjectName(u"lv_edit")
         self.lv_edit.setMinimum(1)
+        self.lv_edit.setMaximum(9999)
 
         self.gridLayout.addWidget(self.lv_edit, 0, 1, 1, 1)
 
         self.hp_edit = QSpinBox(self.groupBox)
         self.hp_edit.setObjectName(u"hp_edit")
         self.hp_edit.setMinimum(1)
-        self.hp_edit.setMaximum(999999)
+        self.hp_edit.setMaximum(9999999)
 
         self.gridLayout.addWidget(self.hp_edit, 1, 1, 1, 1)
 
         self.atk_edit = QSpinBox(self.groupBox)
         self.atk_edit.setObjectName(u"atk_edit")
         self.atk_edit.setMinimum(1)
-        self.atk_edit.setMaximum(99999)
+        self.atk_edit.setMaximum(9999999)
 
         self.gridLayout.addWidget(self.atk_edit, 2, 1, 1, 1)
 
         self.def_edit = QSpinBox(self.groupBox)
         self.def_edit.setObjectName(u"def_edit")
         self.def_edit.setMinimum(1)
-        self.def_edit.setMaximum(99999)
+        self.def_edit.setMaximum(9999999)
 
         self.gridLayout.addWidget(self.def_edit, 3, 1, 1, 1)
 
         self.miss_edit = QSpinBox(self.groupBox)
         self.miss_edit.setObjectName(u"miss_edit")
-        self.miss_edit.setMaximum(99999)
+        self.miss_edit.setMaximum(9999999)
 
         self.gridLayout.addWidget(self.miss_edit, 4, 1, 1, 1)
 
         self.exp_edit = QSpinBox(self.groupBox)
         self.exp_edit.setObjectName(u"exp_edit")
-        self.exp_edit.setMaximum(99999)
+        self.exp_edit.setMaximum(9999999)
 
         self.gridLayout.addWidget(self.exp_edit, 5, 1, 1, 1)
 
         self.gold_edit = QSpinBox(self.groupBox)
         self.gold_edit.setObjectName(u"gold_edit")
-        self.gold_edit.setMaximum(99999)
+        self.gold_edit.setMaximum(9999999)
 
         self.gridLayout.addWidget(self.gold_edit, 6, 1, 1, 1)
 
