@@ -1,0 +1,39 @@
+已判明变量：
+save1fly,楼传
+'save1chor小偷锄头
+'save1nod随意门
+save1nok神剑
+'save1bigchor': 宝石锄头
+'save1ice：冰之护符
+save1betterdf': 魔法护符
+'save1ddd': 4, 怪物手册
+'save1currentx': 6, 'save1currenty': 4  当前坐标
+ 'save1svdata': '19:35:36  Lv:1，主塔20F', 存档名称笑死
+'save1nowfloor': 20,存档时的楼层
+save1gold 金币数量
+'save1maxgoo': 20, 楼传最高楼层
+'save1maxgou': 0,楼传最低楼层
+'save1attimes': 1, 每回合攻击次数
+'save1life': 复生十字架（死亡回2000血）可以大于1，多次生效
+'save1nearat': 0, 攻击临界值
+'save1neardf': 30，防御临界值
+'save1need1': 20, 地上商店所需金币
+'save1need2': 50, 底下商店所需金币
+save1brave': 0勇者 0=无 0.1=有 1，2，3=当前等级
+'save1king': 0, '霸者
+save1intter': 0贤者  80???
+
+未判明：
+'save1tonameofstage：2：无章，无异常状态 1级章也是2  (可能是霸者贤者变量？也可能是中毒衰弱？
+save1currentfloor': '20F'意义不明，最好跟存档楼层一样？可能是为了存档名称特意设定的变量？？似乎是楼层绝对值
+save1control': 1   ？？？
+'save1tostats': 0, '应该是状态变量1=中毒 
+save1heavyda': 10？？？
+'save1attype': 2,？？？似乎不是攻击动画？
+'save1cheapat': 0,  ？？？？？？
+ 'save1cheapdf': 0,   ？？？？？？也许衰弱过后会有数值？
+ 'save1cheapmiss': 0？？？
+'save1talkstr': '1101111111000', 应该跟是否跟人物对话过有关？
+'save1talk': 1101111111000, 
+'save1tocurfloor': 0, ???似乎没变过
+save1key:可能是-2仙子给的17层密道钥匙
