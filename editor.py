@@ -29,8 +29,6 @@ class MyQLabel(QLabel):
             else:
                 self.setPixmap(QPixmap("images/missing.png"))
             self.setToolTip(str(pic_num))
-        else:
-            return
 
 
 class SaveEditor(QMainWindow, Ui_MainWindow):
@@ -67,7 +65,7 @@ class SaveEditor(QMainWindow, Ui_MainWindow):
         self.label_bg.setPixmap(QPixmap("images/bg.png"))
         self.openfile_button.clicked.connect(self.open_sol)
         self.savefile_button.clicked.connect(self.save_sol)
-        self.export_button.clicked.connect(self.export_floor_str)
+        self.savefloor_button.clicked.connect(self.save_floor)
         self.destroy_button.clicked.connect(self.destroy_wall)
         self.replace_button.clicked.connect(self.replace_map_pic)
         self.about_button.clicked.connect(self.about)
@@ -93,6 +91,23 @@ class SaveEditor(QMainWindow, Ui_MainWindow):
             item.setText(self.floor_name_dict[floor_name])
             self.floor_widget.addItem(item)
 
+    def set_other_key(self):
+        self.other_dict = {
+            "save1lv": "等级",
+            "save1hp": "生命值",
+            "save1at": "攻击力",
+            "save1df": "防御力",
+            "save1miss": "敏捷",
+            "save1exp": "经验值",
+            "save1yellowkey": "黄钥匙",
+            "save1bulekey": "蓝钥匙",
+            "save1redkey": "红钥匙",
+            "save1gold": "金币",
+        }
+        self.other_list = []
+        for key in self.other_dict:
+            self.other_list.append(key)
+
     def open_sol(self):
         file_name = QFileDialog.getOpenFileName(self, "请选择游戏存档文件...", filter="*.sol")
         if file_name[0] != "":
@@ -100,18 +115,16 @@ class SaveEditor(QMainWindow, Ui_MainWindow):
             f1_str = self.f["savefloor1f0"]
             self.set_floor_name()
             self.set_floor_widget()
+            self.set_other_key()
             self.draw_map(f1_str)
             self.destroy_button.setEnabled(True)
             self.replace_button.setEnabled(True)
-            self.export_button.setEnabled(True)
-            self.editother_button.setEnabled(True)
+            self.savefloor_button.setEnabled(True)
+            # self.editother_button.setEnabled(True)
             self.savefile_button.setEnabled(True)
 
     def save_sol(self):
         self.f.save("savedata_edit.sol")
-
-    def edit_other(self):
-        print("edit other func")
 
     def export_floor_str(self):
         export_str = ""
@@ -119,7 +132,14 @@ class SaveEditor(QMainWindow, Ui_MainWindow):
             text = label_widget.toolTip()
             text = text + "$"
             export_str = export_str + text
-        print(export_str)
+        return export_str
+
+    def save_floor(self):
+        floor = self.export_floor_str()
+        print(floor)
+
+    def edit_other(self):
+        print("edit other func")
 
     def destroy_wall(self):
         for label_widget in self.label_list:
@@ -156,16 +176,14 @@ class SaveEditor(QMainWindow, Ui_MainWindow):
             label_widget.setToolTip(text)
 
     def chage_selectmap(self):
-        print("chage_selectmap func")
         selcet_item = self.floor_widget.selectedItems()[0]
         item_index = self.floor_widget.row(selcet_item)
         floor_name = self.floor_name_list[item_index]
-        # floor_name_str=self.floor_name_dict[floor_name]
         f_str = self.f[floor_name]
         self.draw_map(f_str)
 
     def about(self):
-        QMessageBox.about(self, "关于...", "新新魔塔存档编辑器 Ver 0.2")
+        QMessageBox.about(self, "关于...", "新新魔塔存档编辑器 Ver 0.3")
 
 
 if __name__ == "__main__":

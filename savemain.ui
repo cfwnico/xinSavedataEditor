@@ -67,12 +67,12 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="export_button">
+      <widget class="QPushButton" name="savefloor_button">
        <property name="enabled">
         <bool>false</bool>
        </property>
        <property name="text">
-        <string>查看楼层代码</string>
+        <string>保存当前楼层</string>
        </property>
       </widget>
      </item>
