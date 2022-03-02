@@ -184,7 +184,7 @@ class SaveEditor(QMainWindow, MainWindow):
         self.draw_map(f_str)
 
     def about(self):
-        QMessageBox.about(self, "关于...", "新新魔塔存档编辑器 Ver 0.6")
+        QMessageBox.about(self, "关于...", "新新魔塔存档编辑器 Ver 0.1\nAuthor:cfw")
 
 
 class Setting(QDialog, SettingWindow):
