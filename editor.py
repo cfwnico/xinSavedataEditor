@@ -7,6 +7,7 @@ from pyamf import sol
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
+from pyamf import amf0
 
 from ui_savemain import Ui_MainWindow as MainWindow
 from ui_setting import Ui_Dialog as SettingWindow
