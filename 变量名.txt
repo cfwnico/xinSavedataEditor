@@ -1,43 +1,50 @@
 已判明变量：
 save1fly,楼传
-'save1chor小偷锄头
-'save1nod随意门
-save1nok神剑
-'save1bigchor': 宝石锄头
-'save1ice：冰之护符
-save1betterdf': 魔法护符
-'save1ddd': 4, 怪物手册
-save1key: 是-2仙子给的17层密道钥匙
-'save1currentx': 6, 'save1currenty': 4  当前坐标
- 'save1svdata': '19:35:36  Lv:1，主塔20F', 存档名称笑死
-'save1nowfloor': 20,存档时的楼层
-save1gold 金币数量
-'save1maxgoo': 20, 楼传最高楼层
-'save1maxgou': 0,楼传最低楼层
-'save1attimes': 1, 每回合攻击次数
-'save1life': 复生十字架（死亡回2000血）可以大于1，多次生效
-'save1nearat': 0, 攻击临界值
-'save1neardf': 30，防御临界值
-'save1need1': 20, 地上商店所需金币
-'save1need2': 50, 地下商店所需金币
-save1brave': 0勇者 0=无 0.1=有 变量值未判明
-'save1king': 0, '霸者
-save1intter': 0贤者  80???
-save1currentfloor': '20F'似乎是楼层的绝对值+“F”，0层就会显示入口
-'save1tostats': 0, '应该是状态变量，1=中毒，2=衰弱，0=正常
-'save1maxgoo': 0,最高可以飞到的楼层
- 'save1maxgou': 0,最低可以飞到的楼层
+save1chor,小偷锄头
+save1nod,随意门
+save1nok,神剑
+save1bigchor,宝石锄头
+save1ice,冰之护符
+save1betterdf,魔法护符
+save1ddd,怪物手册
+save1key:,是-2仙子给的17层密道钥匙
+save1currentx: 6, save1currenty: 4  当前坐标
+save1svdata: 19:35:36  Lv:1，主塔20F, 存档名称笑死
+save1nowfloor: 20,存档时的楼层
+save1gold ,金币数量
+save1maxgoo: 20, 楼传最高楼层
+save1maxgou: 0,楼传最低楼层
+save1attimes: 1, 每回合攻击次数
+save1life: 复生十字架（死亡回2000血）可以大于1，多次生效
+save1nearat: 0, 攻击临界值
+save1neardf: 30，防御临界值
+save1need1: 20, 地上商店所需金币
+save1need2: 50, 地下商店所需金币
+save1brave: 0,勇者 
+save1king: 0,霸者
+save1intter: 0,贤者  
+
+勇者brave：没有=0，0级=0.1，1级=1，2级=2，3级=3
+贤者intter：没有=0，0级=0.1，1级=60，2级=80，3级=100 变量应该跟吸血概率有关
+霸者king：没有=0，0级=0.1，1级=10，2级=20，3级=30 变量意义不明，似乎其他数字会使章失效，有动画没伤害
+
+save1attype: 2,勇士攻击动画：空手2，铁剑20，银剑134，骑士剑141，圣剑148，神圣剑153
+save1currentfloor: 20F似乎是楼层的绝对值+“F”，0层就会显示入口
+save1tostats: 0, 状态变量，0=正常，1=中毒，2=衰弱，
+save1maxgoo: 0,最高可以飞到的楼层
+save1maxgou: 0,最低可以飞到的楼层
+
+save1cheapat: 0,  
+save1cheapdf: 0,   存储衰弱减少的能力值数值
+save1cheapmiss: 0
+
 未判明：
-'save1tonameofstage：2：无章，无异常状态=2，1级章也是2 
-save1control': 1   ？？？
-save1heavyda': 10？？？初始值是5
-'save1attype': 2,？？？似乎不是攻击动画？
-'save1cheapat': 0,  ？？？？？？
- 'save1cheapdf': 0,   ？？？？？？应该是存储衰弱减少的能力值数值
- 'save1cheapmiss': 0？？？
-'save1talkstr': '1101111111000', 应该跟是否跟人物对话过有关？
-'save1talk': 1101111111000, 
-'save1tocurfloor': 0, ???似乎没变过，刚开始是1
+save1tonameofstage：2：无章，无异常状态=2，1级章也是2 好像一直是2？
+save1control: 1   ？？？似乎无效，会自动变回1
+save1heavyda: 10  鉴定了章后莫名其妙变成10了。。0伤防御动画？或者是必杀动画？
+
+save1tocurfloor: 0, ???似乎没变过，在0层是1
 save1set：？？？
-save1talkstr': '1101111111110',
-'save1talk': 1101111111110, 
+
+save1talkstr: 1101111111000, 人物对话相关，懒得研究变量了
+save1talk: 1101111111000, 

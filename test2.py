@@ -1,18 +1,15 @@
+from glob import glob
 from pyamf import sol
+import os
 
-file_name = "savedata.sol"
+path = r"~\AppData\Roaming\Macromedia\Flash Player\#SharedObjects\**\*.sol"
+path = os.path.expanduser(path)
+sol_file_list = glob(path, recursive=True)
+file_name = sol_file_list[0]
 f = sol.load(file_name)
-# print(f)
-# items = f.items()
-# for i in items:
-#     print(i)
 
-# for keys in f:
-#     print(keys)
-#     print(f[keys])
+a = f["save1tonameofstage"]
+print(a)
 
-print(f)
-
-# f["save1need1"] = 3
-# f["save1maxgou"] = -24
+# f["save1control"] = 2
 # f.save(file_name)
