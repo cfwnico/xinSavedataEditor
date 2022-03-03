@@ -1,18 +1,17 @@
 # cfw
 # 2022.3.3
+from glob import glob
 import os
 import sys
 
-from pyamf import sol
+from pyamf import sol  # pip install Py3AMF
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-from pyamf import amf0
+from pyamf import amf0  # pyinstaller need this import
 
 from ui_savemain import Ui_MainWindow as MainWindow
 from ui_setting import Ui_Dialog as SettingWindow
-
-# pip install Py3AMF
 
 
 class MyQLabel(QLabel):
@@ -99,26 +98,43 @@ class SaveEditor(QMainWindow, MainWindow):
             item.setText(self.floor_name_dict[floor_name])
             self.floor_widget.addItem(item)
 
+    def find_last_edit_sol(self):
+        path = r"~\AppData\Roaming\Macromedia\Flash Player\#SharedObjects\**\*.sol"
+        path = os.path.expanduser(path)
+        sol_file_list = glob(path, recursive=True)
+        if len(sol_file_list) == 0:
+            return
+        edit_times = []
+        for file_name in sol_file_list:
+            mtime = os.path.getmtime(file_name)
+            edit_times.append(mtime)
+        max_edit_time = max(edit_times)
+        file_name = edit_times.index(max_edit_time)
+        last_edit_file = sol_file_list[file_name]
+        last_edit_file = os.path.abspath(last_edit_file)
+        return last_edit_file
+
     def open_sol(self, file_path=None):
         if file_path is (None or False):
-            file_name = QFileDialog.getOpenFileName(
-                self, "请选择游戏存档文件...", filter="*.sol"
+            file_name_tuple = QFileDialog.getOpenFileName(
+                self, "请选择游戏存档文件...", self.find_last_edit_sol(), "*.sol"
             )
-            file_name = file_name[0]
+            file_name = file_name_tuple[0]
         else:
             file_name = file_path
         if file_name != "":
             self.sol_obj = sol.load(file_name)
-            f1_str = self.sol_obj["savefloor1f0"]
             self.set_floor_name()
             self.set_floor_widget()
-            self.draw_map(f1_str)
+            f0_str = self.sol_obj["savefloor1f0"]
+            self.draw_map(f0_str)
             self.destroy_button.setEnabled(True)
             self.replace_button.setEnabled(True)
             self.savefloor_button.setEnabled(True)
             self.editother_button.setEnabled(True)
             self.savefile_button.setEnabled(True)
             self.sol_file_name = file_name
+            self.floor_widget.setCurrentRow(0)
 
     def save_sol(self):
         self.save_floor()
@@ -245,10 +261,12 @@ class Setting(QDialog, SettingWindow):
             "save1nearat": self.atknear_edit,
             "save1neardf": self.defnear_edit,
             # =========================================
-            # 商店相关
+            # 杂项相关
             # =========================================
             "save1need1": self.shop3f_edit,
             "save1need2": self.shopb5f_edit,
+            "save1maxgou": self.minf_edit,
+            "save1maxgoo": self.maxf_edit,
             # =========================================
         }
         self.key_list = []
@@ -299,7 +317,10 @@ class Setting(QDialog, SettingWindow):
                 self.sol_obj[key] = value
         # 单独处理save1currentfloor
         floor_value = self.sol_obj["save1nowfloor"]
-        self.sol_obj["save1currentfloor"] = str(abs(floor_value)) + "F"
+        if floor_value == 0:
+            self.sol_obj["save1currentfloor"] = "入口"
+        else:
+            self.sol_obj["save1currentfloor"] = str(abs(floor_value)) + "F"
         # 单独处理状态复选框
         if self.normal_box.isChecked():
             stats_value = 0
@@ -307,6 +328,8 @@ class Setting(QDialog, SettingWindow):
             stats_value = 1
         elif self.weak_box.isChecked():
             stats_value = 2
+        else:
+            stats_value = 0
         self.sol_obj["save1tostats"] = stats_value
 
     def save_sol_file(self):

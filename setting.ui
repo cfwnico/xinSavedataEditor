@@ -7,19 +7,19 @@
     <x>0</x>
     <y>0</y>
     <width>435</width>
-    <height>560</height>
+    <height>600</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>435</width>
-    <height>560</height>
+    <height>600</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>435</width>
-    <height>560</height>
+    <height>600</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -519,20 +519,13 @@
      <x>20</x>
      <y>440</y>
      <width>211</width>
-     <height>91</height>
+     <height>140</height>
     </rect>
    </property>
    <property name="title">
-    <string>商店相关</string>
+    <string>杂项</string>
    </property>
    <layout class="QGridLayout" name="gridLayout_5">
-    <item row="0" column="0">
-     <widget class="QLabel" name="label_24">
-      <property name="text">
-       <string>3F商店加点金币：</string>
-      </property>
-     </widget>
-    </item>
     <item row="0" column="1">
      <widget class="QSpinBox" name="shop3f_edit">
       <property name="minimum">
@@ -543,10 +536,24 @@
       </property>
      </widget>
     </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="label_26">
+      <property name="text">
+       <string>楼层传送器允许传送的楼层：</string>
+      </property>
+     </widget>
+    </item>
     <item row="1" column="0">
      <widget class="QLabel" name="label_25">
       <property name="text">
        <string>B5F商店加点金币：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_24">
+      <property name="text">
+       <string>3F商店加点金币：</string>
       </property>
      </widget>
     </item>
@@ -560,26 +567,55 @@
       </property>
      </widget>
     </item>
+    <item row="3" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_28">
+        <property name="text">
+         <string>最低</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="minf_edit">
+        <property name="minimum">
+         <number>-25</number>
+        </property>
+        <property name="maximum">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_27">
+        <property name="text">
+         <string>~</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_29">
+        <property name="text">
+         <string>最高</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="maxf_edit">
+        <property name="maximum">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
    </layout>
   </widget>
-  <widget class="QLabel" name="about_label">
-   <property name="geometry">
-    <rect>
-     <x>250</x>
-     <y>440</y>
-     <width>161</width>
-     <height>71</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;By Python 3.10&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;GUI PySide6&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;Author:cfw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>260</x>
-     <y>520</y>
+     <y>560</y>
      <width>158</width>
      <height>26</height>
     </rect>
@@ -600,6 +636,19 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="label_30">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>450</y>
+     <width>161</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;By Python 3.10.2&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;GUI PySide6&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;Author:cfw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
   </widget>
  </widget>
  <resources/>

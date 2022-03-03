@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'settingaZbPhA.ui'
+## Form generated from reading UI file 'settingTsbeGi.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -24,9 +24,9 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
-        Dialog.resize(435, 560)
-        Dialog.setMinimumSize(QSize(435, 560))
-        Dialog.setMaximumSize(QSize(435, 560))
+        Dialog.resize(435, 600)
+        Dialog.setMinimumSize(QSize(435, 600))
+        Dialog.setMaximumSize(QSize(435, 600))
         self.groupBox_2 = QGroupBox(Dialog)
         self.groupBox_2.setObjectName(u"groupBox_2")
         self.groupBox_2.setGeometry(QRect(180, 20, 241, 221))
@@ -359,14 +359,9 @@ class Ui_Dialog(object):
 
         self.groupBox_5 = QGroupBox(Dialog)
         self.groupBox_5.setObjectName(u"groupBox_5")
-        self.groupBox_5.setGeometry(QRect(20, 440, 211, 91))
+        self.groupBox_5.setGeometry(QRect(20, 440, 211, 140))
         self.gridLayout_5 = QGridLayout(self.groupBox_5)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
-        self.label_24 = QLabel(self.groupBox_5)
-        self.label_24.setObjectName(u"label_24")
-
-        self.gridLayout_5.addWidget(self.label_24, 0, 0, 1, 1)
-
         self.shop3f_edit = QSpinBox(self.groupBox_5)
         self.shop3f_edit.setObjectName(u"shop3f_edit")
         self.shop3f_edit.setMinimum(1)
@@ -374,10 +369,20 @@ class Ui_Dialog(object):
 
         self.gridLayout_5.addWidget(self.shop3f_edit, 0, 1, 1, 1)
 
+        self.label_26 = QLabel(self.groupBox_5)
+        self.label_26.setObjectName(u"label_26")
+
+        self.gridLayout_5.addWidget(self.label_26, 2, 0, 1, 2)
+
         self.label_25 = QLabel(self.groupBox_5)
         self.label_25.setObjectName(u"label_25")
 
         self.gridLayout_5.addWidget(self.label_25, 1, 0, 1, 1)
+
+        self.label_24 = QLabel(self.groupBox_5)
+        self.label_24.setObjectName(u"label_24")
+
+        self.gridLayout_5.addWidget(self.label_24, 0, 0, 1, 1)
 
         self.shopb5f_edit = QSpinBox(self.groupBox_5)
         self.shopb5f_edit.setObjectName(u"shopb5f_edit")
@@ -386,25 +391,58 @@ class Ui_Dialog(object):
 
         self.gridLayout_5.addWidget(self.shopb5f_edit, 1, 1, 1, 1)
 
-        self.about_label = QLabel(Dialog)
-        self.about_label.setObjectName(u"about_label")
-        self.about_label.setGeometry(QRect(250, 440, 161, 71))
-        self.widget = QWidget(Dialog)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(260, 520, 158, 26))
-        self.horizontalLayout_2 = QHBoxLayout(self.widget)
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.label_28 = QLabel(self.groupBox_5)
+        self.label_28.setObjectName(u"label_28")
+
+        self.horizontalLayout_3.addWidget(self.label_28)
+
+        self.minf_edit = QSpinBox(self.groupBox_5)
+        self.minf_edit.setObjectName(u"minf_edit")
+        self.minf_edit.setMinimum(-25)
+        self.minf_edit.setMaximum(0)
+
+        self.horizontalLayout_3.addWidget(self.minf_edit)
+
+        self.label_27 = QLabel(self.groupBox_5)
+        self.label_27.setObjectName(u"label_27")
+
+        self.horizontalLayout_3.addWidget(self.label_27)
+
+        self.label_29 = QLabel(self.groupBox_5)
+        self.label_29.setObjectName(u"label_29")
+
+        self.horizontalLayout_3.addWidget(self.label_29)
+
+        self.maxf_edit = QSpinBox(self.groupBox_5)
+        self.maxf_edit.setObjectName(u"maxf_edit")
+        self.maxf_edit.setMaximum(20)
+
+        self.horizontalLayout_3.addWidget(self.maxf_edit)
+
+
+        self.gridLayout_5.addLayout(self.horizontalLayout_3, 3, 0, 1, 2)
+
+        self.layoutWidget = QWidget(Dialog)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(260, 560, 158, 26))
+        self.horizontalLayout_2 = QHBoxLayout(self.layoutWidget)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
-        self.save_button = QPushButton(self.widget)
+        self.save_button = QPushButton(self.layoutWidget)
         self.save_button.setObjectName(u"save_button")
 
         self.horizontalLayout_2.addWidget(self.save_button)
 
-        self.cancel_button = QPushButton(self.widget)
+        self.cancel_button = QPushButton(self.layoutWidget)
         self.cancel_button.setObjectName(u"cancel_button")
 
         self.horizontalLayout_2.addWidget(self.cancel_button)
 
+        self.label_30 = QLabel(Dialog)
+        self.label_30.setObjectName(u"label_30")
+        self.label_30.setGeometry(QRect(250, 450, 161, 101))
 
         self.retranslateUi(Dialog)
 
@@ -450,11 +488,15 @@ class Ui_Dialog(object):
         self.normal_box.setText(QCoreApplication.translate("Dialog", u"\u6b63\u5e38", None))
         self.poison_box.setText(QCoreApplication.translate("Dialog", u"\u4e2d\u6bd2", None))
         self.weak_box.setText(QCoreApplication.translate("Dialog", u"\u8870\u5f31", None))
-        self.groupBox_5.setTitle(QCoreApplication.translate("Dialog", u"\u5546\u5e97\u76f8\u5173", None))
-        self.label_24.setText(QCoreApplication.translate("Dialog", u"3F\u5546\u5e97\u52a0\u70b9\u91d1\u5e01\uff1a", None))
+        self.groupBox_5.setTitle(QCoreApplication.translate("Dialog", u"\u6742\u9879", None))
+        self.label_26.setText(QCoreApplication.translate("Dialog", u"\u697c\u5c42\u4f20\u9001\u5668\u5141\u8bb8\u4f20\u9001\u7684\u697c\u5c42\uff1a", None))
         self.label_25.setText(QCoreApplication.translate("Dialog", u"B5F\u5546\u5e97\u52a0\u70b9\u91d1\u5e01\uff1a", None))
-        self.about_label.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"right\">By Python 3.10</p><p align=\"right\">GUI PySide6</p><p align=\"right\">Author:cfw</p></body></html>", None))
+        self.label_24.setText(QCoreApplication.translate("Dialog", u"3F\u5546\u5e97\u52a0\u70b9\u91d1\u5e01\uff1a", None))
+        self.label_28.setText(QCoreApplication.translate("Dialog", u"\u6700\u4f4e", None))
+        self.label_27.setText(QCoreApplication.translate("Dialog", u"~", None))
+        self.label_29.setText(QCoreApplication.translate("Dialog", u"\u6700\u9ad8", None))
         self.save_button.setText(QCoreApplication.translate("Dialog", u"\u4fdd\u5b58", None))
         self.cancel_button.setText(QCoreApplication.translate("Dialog", u"\u53d6\u6d88", None))
+        self.label_30.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"right\">By Python 3.10.2</p><p align=\"right\">GUI PySide6</p><p align=\"right\">Author:cfw</p></body></html>", None))
     # retranslateUi
 

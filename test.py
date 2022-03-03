@@ -1,10 +1,16 @@
-dictt = {"cfw": 24, "ea": 99, "59s": 88}
-
-for i in dictt:
-    print(i, dictt[i])
+from glob import glob
+import os
 
 
-p = enumerate(dictt)
-print(p)
-for i in p:
-    print(i)
+path = r"~\AppData\Roaming\Macromedia\Flash Player\#SharedObjects\**\*.sol"
+path = os.path.expanduser(path)
+a = glob(path, recursive=True)
+mtimes = []
+for i in a:
+    mtime = os.path.getmtime(i)
+    mtimes.append(mtime)
+
+max_ = max(mtimes)
+i = mtimes.index(max_)
+
+last_mfile = a[i]
