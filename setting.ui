@@ -75,6 +75,9 @@
     </item>
     <item row="2" column="2">
      <widget class="QCheckBox" name="ice_check">
+      <property name="toolTip">
+       <string>消除火网陷阱的道具</string>
+      </property>
       <property name="text">
        <string>冰之护符</string>
       </property>
@@ -89,6 +92,9 @@
     </item>
     <item row="3" column="2">
      <widget class="QCheckBox" name="magicdef_check">
+      <property name="toolTip">
+       <string>降低法师防御力的道具</string>
+      </property>
       <property name="text">
        <string>魔法护符</string>
       </property>
@@ -103,6 +109,9 @@
     </item>
     <item row="4" column="2">
      <widget class="QCheckBox" name="chor_check">
+      <property name="toolTip">
+       <string>拥有后和小偷对话可以开启地下层</string>
+      </property>
       <property name="text">
        <string>小偷锄头</string>
       </property>
@@ -117,6 +126,9 @@
     </item>
     <item row="6" column="0">
      <widget class="QLabel" name="label_20">
+      <property name="toolTip">
+       <string>生命归0后增加2000血的道具</string>
+      </property>
       <property name="text">
        <string>复活十字：</string>
       </property>
@@ -124,6 +136,9 @@
     </item>
     <item row="5" column="2">
      <widget class="QCheckBox" name="key_check">
+      <property name="toolTip">
+       <string>拥有后可以进入17F密道</string>
+      </property>
       <property name="text">
        <string>仙子钥匙</string>
       </property>

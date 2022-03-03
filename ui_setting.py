@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'settingTsbeGi.ui'
+## Form generated from reading UI file 'settingHuSffr.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -457,13 +457,28 @@ class Ui_Dialog(object):
         self.label_9.setText(QCoreApplication.translate("Dialog", u"\u84dd\u94a5\u5319\uff1a", None))
         self.ddd_check.setText(QCoreApplication.translate("Dialog", u"\u602a\u7269\u624b\u518c", None))
         self.label_10.setText(QCoreApplication.translate("Dialog", u"\u7ea2\u94a5\u5319\uff1a", None))
+#if QT_CONFIG(tooltip)
+        self.ice_check.setToolTip(QCoreApplication.translate("Dialog", u"\u6d88\u9664\u706b\u7f51\u9677\u9631\u7684\u9053\u5177", None))
+#endif // QT_CONFIG(tooltip)
         self.ice_check.setText(QCoreApplication.translate("Dialog", u"\u51b0\u4e4b\u62a4\u7b26", None))
         self.label_11.setText(QCoreApplication.translate("Dialog", u"\u4efb\u610f\u95e8\uff1a", None))
+#if QT_CONFIG(tooltip)
+        self.magicdef_check.setToolTip(QCoreApplication.translate("Dialog", u"\u964d\u4f4e\u6cd5\u5e08\u9632\u5fa1\u529b\u7684\u9053\u5177", None))
+#endif // QT_CONFIG(tooltip)
         self.magicdef_check.setText(QCoreApplication.translate("Dialog", u"\u9b54\u6cd5\u62a4\u7b26", None))
         self.label_12.setText(QCoreApplication.translate("Dialog", u"\u795e\u5251\u4e4b\u8bc1\uff1a", None))
+#if QT_CONFIG(tooltip)
+        self.chor_check.setToolTip(QCoreApplication.translate("Dialog", u"\u62e5\u6709\u540e\u548c\u5c0f\u5077\u5bf9\u8bdd\u53ef\u4ee5\u5f00\u542f\u5730\u4e0b\u5c42", None))
+#endif // QT_CONFIG(tooltip)
         self.chor_check.setText(QCoreApplication.translate("Dialog", u"\u5c0f\u5077\u9504\u5934", None))
         self.label_13.setText(QCoreApplication.translate("Dialog", u"\u5b9d\u77f3\u9504\u5934\uff1a", None))
+#if QT_CONFIG(tooltip)
+        self.label_20.setToolTip(QCoreApplication.translate("Dialog", u"\u751f\u547d\u5f520\u540e\u589e\u52a02000\u8840\u7684\u9053\u5177", None))
+#endif // QT_CONFIG(tooltip)
         self.label_20.setText(QCoreApplication.translate("Dialog", u"\u590d\u6d3b\u5341\u5b57\uff1a", None))
+#if QT_CONFIG(tooltip)
+        self.key_check.setToolTip(QCoreApplication.translate("Dialog", u"\u62e5\u6709\u540e\u53ef\u4ee5\u8fdb\u516517F\u5bc6\u9053", None))
+#endif // QT_CONFIG(tooltip)
         self.key_check.setText(QCoreApplication.translate("Dialog", u"\u4ed9\u5b50\u94a5\u5319", None))
         self.groupBox.setTitle(QCoreApplication.translate("Dialog", u"\u80fd\u529b\u503c\u76f8\u5173", None))
         self.label.setText(QCoreApplication.translate("Dialog", u"\u7b49\u7ea7\uff1a", None))

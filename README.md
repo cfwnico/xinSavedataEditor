@@ -1,4 +1,4 @@
-#可视化新新魔塔存档编辑器  
+##可视化新新魔塔存档编辑器  
 
 修改楼层地块信息，例如：墙体位置，怪物位置，宝物位置等  
 修改各项数值，例如：等级攻击防御金币等等  
@@ -15,15 +15,18 @@ windows11，python3.10，FlashPlayer32，新新魔塔1.42作弊版
 
 注意：  
 现在会查找最新修改的sol文件地址并自动定位。  
+建议先开一个游戏存个档，方便软件自动定位  
 修改生效的仅为游戏存档槽的第一个槽位。（可能后期会对多槽位修改增加支持）  
-  
-下载地址：（并不是最新版本。。）  
-链接：https://pan.baidu.com/s/17Ixyorn6AYyFyN3oTrbt8w?pwd=4mlx   
-提取码：4mlx   
 
-关于怎么找到Flash游戏存档：  
+如果找不到存档文件，麻烦请参考：  
 https://www.jianshu.com/p/556f30ddfa6b  
+  
+链接：https://pan.baidu.com/s/1rZOxIzM2VgXtNbE5oO9t6g?pwd=f0xr   
+提取码：f0xr   
+--来自百度网盘超级会员V4的分享
+
+
 
 ToDo：  
 1.增加更多的功能  
-2.查找BUG  
+2.查找BUG   
