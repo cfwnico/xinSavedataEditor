@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>新新魔塔存档编辑器</string>
+   <string>新新魔塔存档编辑器 V0.2</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="layoutWidget">
@@ -32,7 +32,7 @@
       <x>450</x>
       <y>10</y>
       <width>82</width>
-      <height>206</height>
+      <height>168</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -97,10 +97,27 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="about_button">
-       <property name="text">
-        <string>关于</string>
-       </property>
+      <widget class="QComboBox" name="comboBox">
+       <item>
+        <property name="text">
+         <string>存档1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>存档2</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>存档3</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>存档4</string>
+        </property>
+       </item>
       </widget>
      </item>
     </layout>
@@ -125,9 +142,9 @@
     <property name="geometry">
      <rect>
       <x>450</x>
-      <y>210</y>
+      <y>180</y>
       <width>81</width>
-      <height>231</height>
+      <height>261</height>
      </rect>
     </property>
    </widget>

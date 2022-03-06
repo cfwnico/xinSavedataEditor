@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'settingHuSffr.ui'
+## Form generated from reading UI file 'settingycqWMV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -15,10 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QDialog, QFrame,
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QDialog,
     QGridLayout, QGroupBox, QHBoxLayout, QLabel,
-    QLineEdit, QPushButton, QRadioButton, QSizePolicy,
-    QSpinBox, QWidget)
+    QLineEdit, QPushButton, QSizePolicy, QSpinBox,
+    QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -330,33 +330,32 @@ class Ui_Dialog(object):
 
         self.gridLayout_4.addWidget(self.label_23, 3, 0, 1, 1)
 
-        self.frame = QFrame(self.groupBox_3)
-        self.frame.setObjectName(u"frame")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.frame.setLineWidth(0)
-        self.horizontalLayout = QHBoxLayout(self.frame)
-        self.horizontalLayout.setSpacing(0)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.normal_box = QRadioButton(self.frame)
-        self.normal_box.setObjectName(u"normal_box")
+        self.stat_combobox = QComboBox(self.groupBox_3)
+        self.stat_combobox.addItem("")
+        self.stat_combobox.addItem("")
+        self.stat_combobox.addItem("")
+        self.stat_combobox.setObjectName(u"stat_combobox")
 
-        self.horizontalLayout.addWidget(self.normal_box)
+        self.gridLayout_4.addWidget(self.stat_combobox, 3, 1, 1, 1)
 
-        self.poison_box = QRadioButton(self.frame)
-        self.poison_box.setObjectName(u"poison_box")
+        self.label_31 = QLabel(self.groupBox_3)
+        self.label_31.setObjectName(u"label_31")
 
-        self.horizontalLayout.addWidget(self.poison_box)
+        self.gridLayout_4.addWidget(self.label_31, 4, 0, 1, 1)
 
-        self.weak_box = QRadioButton(self.frame)
-        self.weak_box.setObjectName(u"weak_box")
+        self.atkanm_combobox = QComboBox(self.groupBox_3)
+        self.atkanm_combobox.addItem("")
+        self.atkanm_combobox.addItem("")
+        self.atkanm_combobox.addItem("")
+        self.atkanm_combobox.addItem("")
+        self.atkanm_combobox.addItem("")
+        self.atkanm_combobox.addItem("")
+        self.atkanm_combobox.setObjectName(u"atkanm_combobox")
 
-        self.horizontalLayout.addWidget(self.weak_box)
+        self.gridLayout_4.addWidget(self.atkanm_combobox, 4, 1, 1, 1)
 
-
-        self.gridLayout_4.addWidget(self.frame, 4, 0, 1, 2)
-
+        self.gridLayout_4.setColumnStretch(0, 8)
+        self.gridLayout_4.setColumnStretch(1, 1)
         self.groupBox_5 = QGroupBox(Dialog)
         self.groupBox_5.setObjectName(u"groupBox_5")
         self.groupBox_5.setGeometry(QRect(20, 440, 211, 140))
@@ -500,9 +499,18 @@ class Ui_Dialog(object):
         self.label_21.setText(QCoreApplication.translate("Dialog", u"\u653b\u51fb\u4e34\u754c\u503c\uff1a", None))
         self.label_22.setText(QCoreApplication.translate("Dialog", u"\u9632\u5fa1\u4e34\u754c\u503c\uff1a", None))
         self.label_23.setText(QCoreApplication.translate("Dialog", u"\u5f53\u524d\u72b6\u6001\uff1a", None))
-        self.normal_box.setText(QCoreApplication.translate("Dialog", u"\u6b63\u5e38", None))
-        self.poison_box.setText(QCoreApplication.translate("Dialog", u"\u4e2d\u6bd2", None))
-        self.weak_box.setText(QCoreApplication.translate("Dialog", u"\u8870\u5f31", None))
+        self.stat_combobox.setItemText(0, QCoreApplication.translate("Dialog", u"\u6b63\u5e38", None))
+        self.stat_combobox.setItemText(1, QCoreApplication.translate("Dialog", u"\u4e2d\u6bd2", None))
+        self.stat_combobox.setItemText(2, QCoreApplication.translate("Dialog", u"\u8870\u5f31", None))
+
+        self.label_31.setText(QCoreApplication.translate("Dialog", u"\u653b\u51fb\u52a8\u753b\uff1a", None))
+        self.atkanm_combobox.setItemText(0, QCoreApplication.translate("Dialog", u"\u7a7a\u624b", None))
+        self.atkanm_combobox.setItemText(1, QCoreApplication.translate("Dialog", u"\u94c1\u5251", None))
+        self.atkanm_combobox.setItemText(2, QCoreApplication.translate("Dialog", u"\u94f6\u5251", None))
+        self.atkanm_combobox.setItemText(3, QCoreApplication.translate("Dialog", u"\u9a91\u58eb\u5251", None))
+        self.atkanm_combobox.setItemText(4, QCoreApplication.translate("Dialog", u"\u5723\u5251", None))
+        self.atkanm_combobox.setItemText(5, QCoreApplication.translate("Dialog", u"\u795e\u5723\u5251", None))
+
         self.groupBox_5.setTitle(QCoreApplication.translate("Dialog", u"\u6742\u9879", None))
         self.label_26.setText(QCoreApplication.translate("Dialog", u"\u697c\u5c42\u4f20\u9001\u5668\u5141\u8bb8\u4f20\u9001\u7684\u697c\u5c42\uff1a", None))
         self.label_25.setText(QCoreApplication.translate("Dialog", u"B5F\u5546\u5e97\u52a0\u70b9\u91d1\u5e01\uff1a", None))
@@ -510,7 +518,7 @@ class Ui_Dialog(object):
         self.label_28.setText(QCoreApplication.translate("Dialog", u"\u6700\u4f4e", None))
         self.label_27.setText(QCoreApplication.translate("Dialog", u"~", None))
         self.label_29.setText(QCoreApplication.translate("Dialog", u"\u6700\u9ad8", None))
-        self.save_button.setText(QCoreApplication.translate("Dialog", u"\u4fdd\u5b58", None))
+        self.save_button.setText(QCoreApplication.translate("Dialog", u"\u786e\u5b9a", None))
         self.cancel_button.setText(QCoreApplication.translate("Dialog", u"\u53d6\u6d88", None))
         self.label_30.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"right\">By Python 3.10.2</p><p align=\"right\">GUI PySide6</p><p align=\"right\">Author:cfw</p></body></html>", None))
     # retranslateUi

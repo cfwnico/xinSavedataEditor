@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'savemainKpMlLx.ui'
+## Form generated from reading UI file 'savemaincxJPqP.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QLabel, QListWidget, QListWidgetItem,
-    QMainWindow, QPushButton, QSizePolicy, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QLabel, QListWidget,
+    QListWidgetItem, QMainWindow, QPushButton, QSizePolicy,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -30,7 +30,7 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.layoutWidget = QWidget(self.centralwidget)
         self.layoutWidget.setObjectName(u"layoutWidget")
-        self.layoutWidget.setGeometry(QRect(450, 10, 82, 206))
+        self.layoutWidget.setGeometry(QRect(450, 10, 82, 168))
         self.verticalLayout = QVBoxLayout(self.layoutWidget)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -70,17 +70,21 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.savefile_button)
 
-        self.about_button = QPushButton(self.layoutWidget)
-        self.about_button.setObjectName(u"about_button")
+        self.comboBox = QComboBox(self.layoutWidget)
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.addItem("")
+        self.comboBox.setObjectName(u"comboBox")
 
-        self.verticalLayout.addWidget(self.about_button)
+        self.verticalLayout.addWidget(self.comboBox)
 
         self.label_bg = QLabel(self.centralwidget)
         self.label_bg.setObjectName(u"label_bg")
         self.label_bg.setGeometry(QRect(20, 20, 416, 416))
         self.floor_widget = QListWidget(self.centralwidget)
         self.floor_widget.setObjectName(u"floor_widget")
-        self.floor_widget.setGeometry(QRect(450, 210, 81, 231))
+        self.floor_widget.setGeometry(QRect(450, 180, 81, 261))
         MainWindow.setCentralWidget(self.centralwidget)
 #if QT_CONFIG(shortcut)
         self.label_bg.setBuddy(self.label_bg)
@@ -92,14 +96,18 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u65b0\u65b0\u9b54\u5854\u5b58\u6863\u7f16\u8f91\u5668", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u65b0\u65b0\u9b54\u5854\u5b58\u6863\u7f16\u8f91\u5668 V0.2", None))
         self.openfile_button.setText(QCoreApplication.translate("MainWindow", u"\u6253\u5f00\u5b58\u6863", None))
         self.destroy_button.setText(QCoreApplication.translate("MainWindow", u"\u6e05\u9664\u5899\u4f53", None))
         self.replace_button.setText(QCoreApplication.translate("MainWindow", u"\u66ff\u6362\u56fe\u5757", None))
         self.savefloor_button.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58\u5f53\u524d\u697c\u5c42", None))
         self.editother_button.setText(QCoreApplication.translate("MainWindow", u"\u4fee\u6539\u5176\u4ed6\u9879", None))
         self.savefile_button.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58\u5b58\u6863", None))
-        self.about_button.setText(QCoreApplication.translate("MainWindow", u"\u5173\u4e8e", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"\u5b58\u68631", None))
+        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"\u5b58\u68632", None))
+        self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"\u5b58\u68633", None))
+        self.comboBox.setItemText(3, QCoreApplication.translate("MainWindow", u"\u5b58\u68634", None))
+
         self.label_bg.setText("")
     # retranslateUi
 
