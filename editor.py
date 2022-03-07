@@ -88,7 +88,6 @@ class SaveEditor(QMainWindow, MainWindow):
         self.savefloor_button.setEnabled(bool)
         self.editother_button.setEnabled(bool)
         self.savefile_button.setEnabled(bool)
-        # self.save_combobox.setEnabled(bool)
 
     def calculate_xy(self):
         xy_offset = 52
@@ -157,7 +156,7 @@ class SaveEditor(QMainWindow, MainWindow):
             try:
                 self.sol_obj = sol.load(file_name)
             except:
-                error_msg(self, "警告", "存档文件读取错误！")
+                error_msg(self, "警告", "存档文件读取失败！")
                 return
             if len(self.check_sol()) == 0:
                 error_msg(self, "警告", "存档文件读取错误！")
