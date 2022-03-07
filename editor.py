@@ -45,6 +45,7 @@ class SaveEditor(QMainWindow, MainWindow):
         self.setup_ui()
         self.calculate_xy()
         self.setup_label()
+        self.set_floor_name()
 
     def calculate_xy(self):
         xy_offset = 52
@@ -93,6 +94,7 @@ class SaveEditor(QMainWindow, MainWindow):
             self.floor_name_list.append(f"saveofloor1f{i}")
 
     def set_floor_widget(self):
+        self.floor_widget.clear()
         for floor_name in self.floor_name_dict:
             item = QListWidgetItem()
             item.setText(self.floor_name_dict[floor_name])
@@ -124,17 +126,16 @@ class SaveEditor(QMainWindow, MainWindow):
             file_name = file_path
         if file_name != "":
             self.sol_obj = sol.load(file_name)
-            self.set_floor_name()
             self.set_floor_widget()
             f0_str = self.sol_obj["savefloor1f0"]
             self.draw_map(f0_str)
+            self.floor_widget.setCurrentRow(0)
             self.destroy_button.setEnabled(True)
             self.replace_button.setEnabled(True)
             self.savefloor_button.setEnabled(True)
             self.editother_button.setEnabled(True)
             self.savefile_button.setEnabled(True)
             self.sol_file_name = file_name
-            self.floor_widget.setCurrentRow(0)
 
     def save_sol(self):
         self.save_floor()
