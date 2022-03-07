@@ -14,6 +14,10 @@ from ui_savemain import Ui_MainWindow as MainWindow
 from ui_setting import Ui_Dialog as SettingWindow
 
 
+def error_msg(parent, title, text):
+    QMessageBox(QMessageBox.Warning, title, text, QMessageBox.Ok, parent).exec()
+
+
 class MyQLabel(QLabel):
     button_clicked_signal = Signal()
 
@@ -150,8 +154,13 @@ class SaveEditor(QMainWindow, MainWindow):
         )
         file_name = file_name_tuple[0]
         if file_name != "":
-            self.sol_obj = sol.load(file_name)
-            if not self.check_sol():
+            try:
+                self.sol_obj = sol.load(file_name)
+            except:
+                error_msg(self, "警告", "存档文件读取错误！")
+                return
+            if len(self.check_sol()) == 0:
+                error_msg(self, "警告", "存档文件读取错误！")
                 return
             self.update_map()
             self.sol_file_name = file_name
@@ -162,10 +171,7 @@ class SaveEditor(QMainWindow, MainWindow):
         for index, text in enumerate(check_list):
             if text in self.sol_obj:
                 exists_list.append(index)
-        if len(exists_list) == 0:
-            return False
-        else:
-            return exists_list
+        return exists_list
 
     def save_sol(self):
         self.save_floor()
