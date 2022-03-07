@@ -422,7 +422,7 @@
    <property name="title">
     <string>战斗相关</string>
    </property>
-   <layout class="QGridLayout" name="gridLayout_4">
+   <layout class="QGridLayout" name="gridLayout_4" columnstretch="8,1">
     <item row="0" column="0">
      <widget class="QLabel" name="label_16">
       <property name="text">
@@ -475,55 +475,64 @@
       </property>
      </widget>
     </item>
-    <item row="4" column="0" colspan="2">
-     <widget class="QFrame" name="frame">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+    <item row="3" column="1">
+     <widget class="QComboBox" name="stat_combobox">
+      <item>
+       <property name="text">
+        <string>正常</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>中毒</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>衰弱</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_31">
+      <property name="text">
+       <string>攻击动画：</string>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <property name="lineWidth">
-       <number>0</number>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
-       <property name="spacing">
-        <number>0</number>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QComboBox" name="atkanm_combobox">
+      <item>
+       <property name="text">
+        <string>空手</string>
        </property>
-       <property name="leftMargin">
-        <number>0</number>
+      </item>
+      <item>
+       <property name="text">
+        <string>铁剑</string>
        </property>
-       <property name="topMargin">
-        <number>0</number>
+      </item>
+      <item>
+       <property name="text">
+        <string>银剑</string>
        </property>
-       <property name="rightMargin">
-        <number>0</number>
+      </item>
+      <item>
+       <property name="text">
+        <string>骑士剑</string>
        </property>
-       <property name="bottomMargin">
-        <number>0</number>
+      </item>
+      <item>
+       <property name="text">
+        <string>圣剑</string>
        </property>
-       <item>
-        <widget class="QRadioButton" name="normal_box">
-         <property name="text">
-          <string>正常</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="poison_box">
-         <property name="text">
-          <string>中毒</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QRadioButton" name="weak_box">
-         <property name="text">
-          <string>衰弱</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      </item>
+      <item>
+       <property name="text">
+        <string>神圣剑</string>
+       </property>
+      </item>
      </widget>
     </item>
    </layout>
@@ -639,7 +648,7 @@
     <item>
      <widget class="QPushButton" name="save_button">
       <property name="text">
-       <string>保存</string>
+       <string>确定</string>
       </property>
      </widget>
     </item>

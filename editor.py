@@ -76,7 +76,6 @@ class SaveEditor(QMainWindow, MainWindow):
         self.savefloor_button.clicked.connect(self.save_floor)
         self.destroy_button.clicked.connect(self.destroy_wall)
         self.replace_button.clicked.connect(self.replace_map_pic)
-        self.about_button.clicked.connect(self.about)
         self.editother_button.clicked.connect(self.edit_other)
         self.floor_widget.itemClicked.connect(self.chage_selectmap)
 
@@ -116,16 +115,16 @@ class SaveEditor(QMainWindow, MainWindow):
         last_edit_file = os.path.abspath(last_edit_file)
         return last_edit_file
 
-    def open_sol(self, file_path=None):
-        if file_path is (None or False):
-            file_name_tuple = QFileDialog.getOpenFileName(
-                self, "请选择游戏存档文件...", self.find_last_edit_sol(), "*.sol"
-            )
-            file_name = file_name_tuple[0]
-        else:
-            file_name = file_path
+    def open_sol(self):
+        file_name_tuple = QFileDialog.getOpenFileName(
+            self, "请选择游戏存档文件...", self.find_last_edit_sol(), "*.sol"
+        )
+        file_name = file_name_tuple[0]
         if file_name != "":
             self.sol_obj = sol.load(file_name)
+            if not self.check_sol():
+                return
+            self.set_floor_name()
             self.set_floor_widget()
             f0_str = self.sol_obj["savefloor1f0"]
             self.draw_map(f0_str)
@@ -136,6 +135,14 @@ class SaveEditor(QMainWindow, MainWindow):
             self.editother_button.setEnabled(True)
             self.savefile_button.setEnabled(True)
             self.sol_file_name = file_name
+
+    def check_sol(self):
+        check_list = ["save1svdata", "save2svdata", "save3svdata", "save4svdata"]
+        exists_list = []
+        for index, text in enumerate(check_list):
+            if text in self.sol_obj:
+                exists_list.append(index)
+        return exists_list
 
     def save_sol(self):
         self.save_floor()
@@ -157,7 +164,7 @@ class SaveEditor(QMainWindow, MainWindow):
         self.sol_obj[floor_name] = floor_str
 
     def edit_other(self):
-        self.setwindow = Setting(self, self.sol_file_name)
+        self.setwindow = Setting(self, self.sol_obj)
         self.setwindow.exec()
 
     def destroy_wall(self):
@@ -169,10 +176,10 @@ class SaveEditor(QMainWindow, MainWindow):
                 label_widget.setToolTip("126")
 
     def replace_map_pic(self):
-        src_num, ok = QInputDialog.getInt(self, "替换所有图块", "请输入需要替换的图块编号：")
+        src_num, ok = QInputDialog.getInt(self, "替换所有图块", "请输入需要替换的图块编号：(1-137)")
         if not ok:
             return
-        tag_num, ok = QInputDialog.getInt(self, "替换所有图块", "请输入要替换为图块编号：")
+        tag_num, ok = QInputDialog.getInt(self, "替换所有图块", "请输入要替换为图块编号：(1-137)")
         if not ok:
             return
         for label_widget in self.label_list:
@@ -201,22 +208,19 @@ class SaveEditor(QMainWindow, MainWindow):
         f_str = self.sol_obj[floor_name]
         self.draw_map(f_str)
 
-    def about(self):
-        QMessageBox.about(self, "关于...", "新新魔塔存档编辑器 Ver 0.1\nAuthor:cfw")
-
 
 class Setting(QDialog, SettingWindow):
-    def __init__(self, parentwindow: QMainWindow, sol_file):
+    def __init__(self, parentwindow: QMainWindow, sol_obj: sol.SOL, save_slot: int):
         super().__init__(parentwindow)
-        self.sol_obj = sol.load(sol_file)
-        self.sol_file_name = sol_file
+        self.sol_obj = sol_obj
+        self.save_slot = save_slot
         self.setupUi(self)
         self.setup_ui()
         self.set_args()
         self.load_data()
 
     def setup_ui(self):
-        self.save_button.clicked.connect(self.save_sol_file)
+        self.save_button.clicked.connect(self.save_and_close)
         self.cancel_button.clicked.connect(lambda: self.close())
 
     def set_args(self):
@@ -261,6 +265,8 @@ class Setting(QDialog, SettingWindow):
             "save1attimes": self.atktimes_edit,
             "save1nearat": self.atknear_edit,
             "save1neardf": self.defnear_edit,
+            # "save1tostats": self.stat_combobox,
+            # "save1attype": self.atkanm_combobox,
             # =========================================
             # 杂项相关
             # =========================================
@@ -270,11 +276,10 @@ class Setting(QDialog, SettingWindow):
             "save1maxgoo": self.maxf_edit,
             # =========================================
         }
+        self.atkanm_dict = {2: 0, 20: 1, 134: 2, 141: 3, 148: 4, 153: 5}
         self.key_list = []
         for key in self.key_widget_dict:
             self.key_list.append(key)
-        # 获取状态
-        self.stats = self.sol_obj["save1tostats"]
 
     def load_data(self):
         for key in self.key_list:
@@ -287,20 +292,18 @@ class Setting(QDialog, SettingWindow):
             elif isinstance(widgets, QLabel):
                 widgets.setText(value)
             elif isinstance(widgets, QCheckBox):
-                if value == 0:
-                    widgets.setChecked(False)
-                elif value == 1:
+                if value == 1:
                     widgets.setChecked(True)
                 else:
                     widgets.setChecked(False)
-        if self.stats == 0:
-            self.normal_box.setChecked(True)
-        elif self.stats == 1:
-            self.poison_box.setChecked(True)
-        elif self.stats == 2:
-            self.weak_box.setChecked(True)
+        # 读取状态
+        stats = self.sol_obj["save1tostats"]
+        self.stat_combobox.setCurrentIndex(stats)
+        # 读取攻击动画
+        atkanm = self.sol_obj["save1attype"]
+        self.atkanm_combobox.setCurrentIndex(self.atkanm_dict[atkanm])
 
-    def write_sol_file(self):
+    def save_and_close(self):
         for key in self.key_list:
             widgets = self.key_widget_dict[key]
             if isinstance(widgets, QLineEdit):
@@ -314,7 +317,7 @@ class Setting(QDialog, SettingWindow):
                 if bool_value is True:
                     value = 1
                 elif bool_value is False:
-                    value = 0
+                    value = -1
                 self.sol_obj[key] = value
         # 单独处理save1currentfloor
         floor_value = self.sol_obj["save1nowfloor"]
@@ -322,21 +325,11 @@ class Setting(QDialog, SettingWindow):
             self.sol_obj["save1currentfloor"] = "入口"
         else:
             self.sol_obj["save1currentfloor"] = str(abs(floor_value)) + "F"
-        # 单独处理状态复选框
-        if self.normal_box.isChecked():
-            stats_value = 0
-        elif self.poison_box.isChecked():
-            stats_value = 1
-        elif self.weak_box.isChecked():
-            stats_value = 2
-        else:
-            stats_value = 0
-        self.sol_obj["save1tostats"] = stats_value
-
-    def save_sol_file(self):
-        self.write_sol_file()
-        self.sol_obj.save(self.sol_file_name)
-        main_window.open_sol(self.sol_file_name)
+        # 设置状态
+        self.sol_obj["save1tostats"] = self.stat_combobox.currentIndex()
+        # 设置攻击动画
+        atkanm_value = self.atkanm_combobox.currentIndex
+        self.sol_obj["save1attype"] = self.atkanm_dict[atkanm_value]
         self.close()
 
 
