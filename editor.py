@@ -37,6 +37,10 @@ class MyQLabel(QLabel):
                 self.setPixmap(QPixmap("images/missing.png"))
             self.setToolTip(str(pic_num))
 
+    def clear_all(self):
+        self.clear()
+        self.setToolTip("")
+
 
 class SaveEditor(QMainWindow, MainWindow):
     def __init__(self):
@@ -45,7 +49,42 @@ class SaveEditor(QMainWindow, MainWindow):
         self.setup_ui()
         self.calculate_xy()
         self.setup_label()
-        self.set_floor_name()
+
+    def setup_ui(self):
+        self.label_bg.setPixmap(QPixmap("images/bg.png"))
+        self.openfile_button.clicked.connect(self.open_sol)
+        self.savefile_button.clicked.connect(self.save_sol)
+        self.savefloor_button.clicked.connect(self.save_floor)
+        self.destroy_button.clicked.connect(self.destroy_wall)
+        self.replace_button.clicked.connect(self.replace_map_pic)
+        self.editother_button.clicked.connect(self.edit_other)
+        self.floor_widget.itemClicked.connect(self.chage_selectmap)
+        self.save_combobox.currentIndexChanged.connect(self.update_map)
+
+    def update_map(self):
+        save_index = self.save_combobox.currentIndex() + 1
+        check_str = f"save{save_index}svdata"
+        if not check_str in self.sol_obj:
+            for i in self.label_list:
+                i.clear_all()
+                self.floor_widget.clear()
+                self.set_button_enabled(False)
+            return
+        self.set_floor_name(save_index)
+        self.set_floor_listwidget()
+        f0_str = self.sol_obj[f"savefloor{save_index}f0"]
+        self.draw_map(f0_str)
+        self.floor_widget.setCurrentRow(0)
+        self.set_button_enabled(True)
+        self.save_combobox.setEnabled(True)
+
+    def set_button_enabled(self, bool: bool):
+        self.destroy_button.setEnabled(bool)
+        self.replace_button.setEnabled(bool)
+        self.savefloor_button.setEnabled(bool)
+        self.editother_button.setEnabled(bool)
+        self.savefile_button.setEnabled(bool)
+        # self.save_combobox.setEnabled(bool)
 
     def calculate_xy(self):
         xy_offset = 52
@@ -69,30 +108,20 @@ class SaveEditor(QMainWindow, MainWindow):
             map_label.move(x, y)
             self.label_list.append(map_label)
 
-    def setup_ui(self):
-        self.label_bg.setPixmap(QPixmap("images/bg.png"))
-        self.openfile_button.clicked.connect(self.open_sol)
-        self.savefile_button.clicked.connect(self.save_sol)
-        self.savefloor_button.clicked.connect(self.save_floor)
-        self.destroy_button.clicked.connect(self.destroy_wall)
-        self.replace_button.clicked.connect(self.replace_map_pic)
-        self.editother_button.clicked.connect(self.edit_other)
-        self.floor_widget.itemClicked.connect(self.chage_selectmap)
-
-    def set_floor_name(self):
+    def set_floor_name(self, save_index: int):
         self.floor_name_dict = {}
         self.floor_name_list = []
         for i in range(21):
-            self.floor_name_dict[f"savefloor1f{i}"] = f"{i}F"
-            self.floor_name_list.append(f"savefloor1f{i}")
+            self.floor_name_dict[f"savefloor{save_index}f{i}"] = f"{i}F"
+            self.floor_name_list.append(f"savefloor{save_index}f{i}")
         for i in range(1, 26):
-            self.floor_name_dict[f"savebfloor1f{i}"] = f"B{i}F"
-            self.floor_name_list.append(f"savebfloor1f{i}")
+            self.floor_name_dict[f"savebfloor{save_index}f{i}"] = f"B{i}F"
+            self.floor_name_list.append(f"savebfloor{save_index}f{i}")
         for i in range(1, 11):
-            self.floor_name_dict[f"saveofloor1f{i}"] = f"魔塔{i}F"
-            self.floor_name_list.append(f"saveofloor1f{i}")
+            self.floor_name_dict[f"saveofloor{save_index}f{i}"] = f"魔塔{i}F"
+            self.floor_name_list.append(f"saveofloor{save_index}f{i}")
 
-    def set_floor_widget(self):
+    def set_floor_listwidget(self):
         self.floor_widget.clear()
         for floor_name in self.floor_name_dict:
             item = QListWidgetItem()
@@ -124,16 +153,7 @@ class SaveEditor(QMainWindow, MainWindow):
             self.sol_obj = sol.load(file_name)
             if not self.check_sol():
                 return
-            self.set_floor_name()
-            self.set_floor_widget()
-            f0_str = self.sol_obj["savefloor1f0"]
-            self.draw_map(f0_str)
-            self.floor_widget.setCurrentRow(0)
-            self.destroy_button.setEnabled(True)
-            self.replace_button.setEnabled(True)
-            self.savefloor_button.setEnabled(True)
-            self.editother_button.setEnabled(True)
-            self.savefile_button.setEnabled(True)
+            self.update_map()
             self.sol_file_name = file_name
 
     def check_sol(self):
@@ -142,7 +162,10 @@ class SaveEditor(QMainWindow, MainWindow):
         for index, text in enumerate(check_list):
             if text in self.sol_obj:
                 exists_list.append(index)
-        return exists_list
+        if len(exists_list) == 0:
+            return False
+        else:
+            return exists_list
 
     def save_sol(self):
         self.save_floor()
@@ -164,7 +187,7 @@ class SaveEditor(QMainWindow, MainWindow):
         self.sol_obj[floor_name] = floor_str
 
     def edit_other(self):
-        self.setwindow = Setting(self, self.sol_obj)
+        self.setwindow = Setting(self, self.sol_obj, 2)
         self.setwindow.exec()
 
     def destroy_wall(self):
@@ -210,10 +233,10 @@ class SaveEditor(QMainWindow, MainWindow):
 
 
 class Setting(QDialog, SettingWindow):
-    def __init__(self, parentwindow: QMainWindow, sol_obj: sol.SOL, save_slot: int):
+    def __init__(self, parentwindow: QMainWindow, sol_obj: sol.SOL, save_index: int):
         super().__init__(parentwindow)
         self.sol_obj = sol_obj
-        self.save_slot = save_slot
+        self.save_index = save_index
         self.setupUi(self)
         self.setup_ui()
         self.set_args()
@@ -224,7 +247,7 @@ class Setting(QDialog, SettingWindow):
         self.cancel_button.clicked.connect(lambda: self.close())
 
     def set_args(self):
-        self.key_widget_dict = {
+        self.key_widgets_default = {
             # =========================================
             # 能力值相关
             # =========================================
@@ -276,14 +299,24 @@ class Setting(QDialog, SettingWindow):
             "save1maxgoo": self.maxf_edit,
             # =========================================
         }
-        self.atkanm_dict = {2: 0, 20: 1, 134: 2, 141: 3, 148: 4, 153: 5}
-        self.key_list = []
-        for key in self.key_widget_dict:
-            self.key_list.append(key)
+        self.key_list_now = []
+        self.key_widgets_now = {}
+        if self.save_index == 1:
+            self.key_widgets_now = self.key_widgets_default
+
+            for key in self.key_widgets_default:
+                self.key_list_now.append(key)
+        else:
+            for key in self.key_widgets_default:
+                now_key = key.replace("save1", f"save{self.save_index}")
+                self.key_widgets_now[now_key] = self.key_widgets_default[key]
+                self.key_list_now.append(now_key)
+
+        self.atkanm_list = [2, 20, 134, 141, 148, 153]
 
     def load_data(self):
-        for key in self.key_list:
-            widgets = self.key_widget_dict[key]
+        for key in self.key_list_now:
+            widgets = self.key_widgets_now[key]
             value = self.sol_obj[key]
             if isinstance(widgets, QLineEdit):
                 widgets.setText(value)
@@ -297,15 +330,15 @@ class Setting(QDialog, SettingWindow):
                 else:
                     widgets.setChecked(False)
         # 读取状态
-        stats = self.sol_obj["save1tostats"]
+        stats = self.sol_obj[f"save{self.save_index}tostats"]
         self.stat_combobox.setCurrentIndex(stats)
         # 读取攻击动画
-        atkanm = self.sol_obj["save1attype"]
-        self.atkanm_combobox.setCurrentIndex(self.atkanm_dict[atkanm])
+        atkanm = self.sol_obj[f"save{self.save_index}attype"]
+        self.atkanm_combobox.setCurrentIndex(self.atkanm_list.index(atkanm))
 
     def save_and_close(self):
-        for key in self.key_list:
-            widgets = self.key_widget_dict[key]
+        for key in self.key_list_now:
+            widgets = self.key_widgets_now[key]
             if isinstance(widgets, QLineEdit):
                 text = widgets.text()
                 self.sol_obj[key] = text
@@ -319,17 +352,20 @@ class Setting(QDialog, SettingWindow):
                 elif bool_value is False:
                     value = -1
                 self.sol_obj[key] = value
-        # 单独处理save1currentfloor
-        floor_value = self.sol_obj["save1nowfloor"]
+        # 单独处理save currentfloor
+        floor_value = self.sol_obj[f"save{self.save_index}nowfloor"]
+        obj_str = f"save{self.save_index}currentfloor"
         if floor_value == 0:
-            self.sol_obj["save1currentfloor"] = "入口"
+            self.sol_obj[obj_str] = "入口"
         else:
-            self.sol_obj["save1currentfloor"] = str(abs(floor_value)) + "F"
+            self.sol_obj[obj_str] = str(abs(floor_value)) + "F"
         # 设置状态
-        self.sol_obj["save1tostats"] = self.stat_combobox.currentIndex()
+        self.sol_obj[
+            f"save{self.save_index}tostats"
+        ] = self.stat_combobox.currentIndex()
         # 设置攻击动画
-        atkanm_value = self.atkanm_combobox.currentIndex
-        self.sol_obj["save1attype"] = self.atkanm_dict[atkanm_value]
+        atkanm_value = self.atkanm_combobox.currentIndex()
+        self.sol_obj[f"save{self.save_index}attype"] = self.atkanm_list[atkanm_value]
         self.close()
 
 

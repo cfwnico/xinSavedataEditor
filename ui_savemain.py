@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'savemaincxJPqP.ui'
+## Form generated from reading UI file 'savemainyeEwpA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -70,14 +70,15 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.savefile_button)
 
-        self.comboBox = QComboBox(self.layoutWidget)
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.comboBox.setObjectName(u"comboBox")
+        self.save_combobox = QComboBox(self.layoutWidget)
+        self.save_combobox.addItem("")
+        self.save_combobox.addItem("")
+        self.save_combobox.addItem("")
+        self.save_combobox.addItem("")
+        self.save_combobox.setObjectName(u"save_combobox")
+        self.save_combobox.setEnabled(False)
 
-        self.verticalLayout.addWidget(self.comboBox)
+        self.verticalLayout.addWidget(self.save_combobox)
 
         self.label_bg = QLabel(self.centralwidget)
         self.label_bg.setObjectName(u"label_bg")
@@ -103,10 +104,10 @@ class Ui_MainWindow(object):
         self.savefloor_button.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58\u5f53\u524d\u697c\u5c42", None))
         self.editother_button.setText(QCoreApplication.translate("MainWindow", u"\u4fee\u6539\u5176\u4ed6\u9879", None))
         self.savefile_button.setText(QCoreApplication.translate("MainWindow", u"\u4fdd\u5b58\u5b58\u6863", None))
-        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"\u5b58\u68631", None))
-        self.comboBox.setItemText(1, QCoreApplication.translate("MainWindow", u"\u5b58\u68632", None))
-        self.comboBox.setItemText(2, QCoreApplication.translate("MainWindow", u"\u5b58\u68633", None))
-        self.comboBox.setItemText(3, QCoreApplication.translate("MainWindow", u"\u5b58\u68634", None))
+        self.save_combobox.setItemText(0, QCoreApplication.translate("MainWindow", u"\u5b58\u68631", None))
+        self.save_combobox.setItemText(1, QCoreApplication.translate("MainWindow", u"\u5b58\u68632", None))
+        self.save_combobox.setItemText(2, QCoreApplication.translate("MainWindow", u"\u5b58\u68633", None))
+        self.save_combobox.setItemText(3, QCoreApplication.translate("MainWindow", u"\u5b58\u68634", None))
 
         self.label_bg.setText("")
     # retranslateUi

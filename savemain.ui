@@ -97,7 +97,10 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QComboBox" name="save_combobox">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <item>
         <property name="text">
          <string>存档1</string>
