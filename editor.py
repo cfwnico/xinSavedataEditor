@@ -29,6 +29,10 @@ class MyQLabel(QLabel):
         self.button_clicked_signal.emit()
 
     def change_map(self):
+        try:
+            int(self.toolTip())
+        except:
+            return
         pic_num, ok = QInputDialog.getInt(
             self, "修改图块", "请输入图块编号:(1-137)", int(self.toolTip())
         )

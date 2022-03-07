@@ -8,18 +8,18 @@
 
 测试环境：  
 windows11\10，python3.10，FlashPlayer32，新新魔塔1.42作弊版  
-测试已通过
+测试已通过  
 
 已知BUG：  
 暂无  
 
 注意：  
 现在会查找最新修改的sol文件地址并自动定位。  
-建议先开一个游戏存个档，方便软件自动定位  
+建议先开游戏存个档，方便软件自动定位。  
 
-链接：https://pan.baidu.com/s/1rZOxIzM2VgXtNbE5oO9t6g 
-提取码：f0xr 
-复制这段内容后打开百度网盘手机App，操作更方便哦
+链接：https://pan.baidu.com/s/1rZOxIzM2VgXtNbE5oO9t6g   
+提取码：f0xr   
+复制这段内容后打开百度网盘手机App，操作更方便哦  
 
 如果找不到存档文件，麻烦请参考：  
 https://www.jianshu.com/p/556f30ddfa6b  
