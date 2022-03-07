@@ -187,7 +187,7 @@ class SaveEditor(QMainWindow, MainWindow):
         self.sol_obj[floor_name] = floor_str
 
     def edit_other(self):
-        save_index = self.save_combobox.currentIndex()
+        save_index = self.save_combobox.currentIndex() + 1
         self.setwindow = Setting(self, self.sol_obj, save_index)
         self.setwindow.exec()
 
