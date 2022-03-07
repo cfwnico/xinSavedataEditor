@@ -187,7 +187,8 @@ class SaveEditor(QMainWindow, MainWindow):
         self.sol_obj[floor_name] = floor_str
 
     def edit_other(self):
-        self.setwindow = Setting(self, self.sol_obj, 2)
+        save_index = self.save_combobox.currentIndex()
+        self.setwindow = Setting(self, self.sol_obj, save_index)
         self.setwindow.exec()
 
     def destroy_wall(self):
