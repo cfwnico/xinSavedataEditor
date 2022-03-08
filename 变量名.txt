@@ -41,7 +41,7 @@ save1cheapmiss: 0
 未判明：
 save1tonameofstage：2：无章，无异常状态=2，1级章也是2 好像一直是2？
 save1control: 1   ？？？似乎无效，会自动变回1
-save1heavyda: 10  鉴定了章后莫名其妙变成10了。。0伤防御动画？或者是必杀动画？
+save1heavyda: 10  似乎是暴击几率
 
 save1tocurfloor: 0, ???似乎没变过，在0层是1
 save1set：？？？
