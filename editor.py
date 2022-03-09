@@ -1,5 +1,5 @@
 # cfw
-# 2022.3.7
+# 2022.3.9
 from glob import glob
 import os
 import sys
@@ -296,6 +296,7 @@ class Setting(QDialog, SettingWindow):
             # 战斗相关
             # =========================================
             "save1attimes": self.atktimes_edit,
+            "save1heavyda": self.baoji_edit,
             "save1nearat": self.atknear_edit,
             "save1neardf": self.defnear_edit,
             # "save1tostats": self.stat_combobox,

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'settingycqWMV.ui'
+## Form generated from reading UI file 'settingKVfCDB.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -291,57 +291,21 @@ class Ui_Dialog(object):
         self.groupBox_3.setGeometry(QRect(180, 250, 241, 181))
         self.gridLayout_4 = QGridLayout(self.groupBox_3)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.label_16 = QLabel(self.groupBox_3)
-        self.label_16.setObjectName(u"label_16")
+        self.label_31 = QLabel(self.groupBox_3)
+        self.label_31.setObjectName(u"label_31")
 
-        self.gridLayout_4.addWidget(self.label_16, 0, 0, 1, 1)
-
-        self.atktimes_edit = QSpinBox(self.groupBox_3)
-        self.atktimes_edit.setObjectName(u"atktimes_edit")
-        self.atktimes_edit.setMinimum(1)
-        self.atktimes_edit.setMaximum(9999)
-
-        self.gridLayout_4.addWidget(self.atktimes_edit, 0, 1, 1, 1)
-
-        self.label_21 = QLabel(self.groupBox_3)
-        self.label_21.setObjectName(u"label_21")
-
-        self.gridLayout_4.addWidget(self.label_21, 1, 0, 1, 1)
-
-        self.atknear_edit = QSpinBox(self.groupBox_3)
-        self.atknear_edit.setObjectName(u"atknear_edit")
-        self.atknear_edit.setMaximum(9999)
-
-        self.gridLayout_4.addWidget(self.atknear_edit, 1, 1, 1, 1)
-
-        self.label_22 = QLabel(self.groupBox_3)
-        self.label_22.setObjectName(u"label_22")
-
-        self.gridLayout_4.addWidget(self.label_22, 2, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.label_31, 5, 0, 1, 1)
 
         self.defnear_edit = QSpinBox(self.groupBox_3)
         self.defnear_edit.setObjectName(u"defnear_edit")
         self.defnear_edit.setMaximum(9999)
 
-        self.gridLayout_4.addWidget(self.defnear_edit, 2, 1, 1, 1)
+        self.gridLayout_4.addWidget(self.defnear_edit, 3, 1, 1, 1)
 
-        self.label_23 = QLabel(self.groupBox_3)
-        self.label_23.setObjectName(u"label_23")
+        self.label_16 = QLabel(self.groupBox_3)
+        self.label_16.setObjectName(u"label_16")
 
-        self.gridLayout_4.addWidget(self.label_23, 3, 0, 1, 1)
-
-        self.stat_combobox = QComboBox(self.groupBox_3)
-        self.stat_combobox.addItem("")
-        self.stat_combobox.addItem("")
-        self.stat_combobox.addItem("")
-        self.stat_combobox.setObjectName(u"stat_combobox")
-
-        self.gridLayout_4.addWidget(self.stat_combobox, 3, 1, 1, 1)
-
-        self.label_31 = QLabel(self.groupBox_3)
-        self.label_31.setObjectName(u"label_31")
-
-        self.gridLayout_4.addWidget(self.label_31, 4, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.label_16, 0, 0, 1, 1)
 
         self.atkanm_combobox = QComboBox(self.groupBox_3)
         self.atkanm_combobox.addItem("")
@@ -352,7 +316,54 @@ class Ui_Dialog(object):
         self.atkanm_combobox.addItem("")
         self.atkanm_combobox.setObjectName(u"atkanm_combobox")
 
-        self.gridLayout_4.addWidget(self.atkanm_combobox, 4, 1, 1, 1)
+        self.gridLayout_4.addWidget(self.atkanm_combobox, 5, 1, 1, 1)
+
+        self.atknear_edit = QSpinBox(self.groupBox_3)
+        self.atknear_edit.setObjectName(u"atknear_edit")
+        self.atknear_edit.setMaximum(9999)
+
+        self.gridLayout_4.addWidget(self.atknear_edit, 2, 1, 1, 1)
+
+        self.label_21 = QLabel(self.groupBox_3)
+        self.label_21.setObjectName(u"label_21")
+
+        self.gridLayout_4.addWidget(self.label_21, 2, 0, 1, 1)
+
+        self.atktimes_edit = QSpinBox(self.groupBox_3)
+        self.atktimes_edit.setObjectName(u"atktimes_edit")
+        self.atktimes_edit.setMinimum(1)
+        self.atktimes_edit.setMaximum(9999)
+
+        self.gridLayout_4.addWidget(self.atktimes_edit, 0, 1, 1, 1)
+
+        self.label_23 = QLabel(self.groupBox_3)
+        self.label_23.setObjectName(u"label_23")
+
+        self.gridLayout_4.addWidget(self.label_23, 4, 0, 1, 1)
+
+        self.stat_combobox = QComboBox(self.groupBox_3)
+        self.stat_combobox.addItem("")
+        self.stat_combobox.addItem("")
+        self.stat_combobox.addItem("")
+        self.stat_combobox.setObjectName(u"stat_combobox")
+
+        self.gridLayout_4.addWidget(self.stat_combobox, 4, 1, 1, 1)
+
+        self.label_22 = QLabel(self.groupBox_3)
+        self.label_22.setObjectName(u"label_22")
+
+        self.gridLayout_4.addWidget(self.label_22, 3, 0, 1, 1)
+
+        self.label_32 = QLabel(self.groupBox_3)
+        self.label_32.setObjectName(u"label_32")
+
+        self.gridLayout_4.addWidget(self.label_32, 1, 0, 1, 1)
+
+        self.baoji_edit = QSpinBox(self.groupBox_3)
+        self.baoji_edit.setObjectName(u"baoji_edit")
+        self.baoji_edit.setMaximum(100)
+
+        self.gridLayout_4.addWidget(self.baoji_edit, 1, 1, 1, 1)
 
         self.gridLayout_4.setColumnStretch(0, 8)
         self.gridLayout_4.setColumnStretch(1, 1)
@@ -495,15 +506,8 @@ class Ui_Dialog(object):
         self.label_14.setText(QCoreApplication.translate("Dialog", u"\u52c7\u8005\u5750\u6807\uff1aX\uff1a", None))
         self.label_15.setText(QCoreApplication.translate("Dialog", u"\u52c7\u8005\u5750\u6807\uff1aY\uff1a", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("Dialog", u"\u6218\u6597\u76f8\u5173", None))
-        self.label_16.setText(QCoreApplication.translate("Dialog", u"\u6bcf\u56de\u5408\u653b\u51fb\u6b21\u6570\uff1a", None))
-        self.label_21.setText(QCoreApplication.translate("Dialog", u"\u653b\u51fb\u4e34\u754c\u503c\uff1a", None))
-        self.label_22.setText(QCoreApplication.translate("Dialog", u"\u9632\u5fa1\u4e34\u754c\u503c\uff1a", None))
-        self.label_23.setText(QCoreApplication.translate("Dialog", u"\u5f53\u524d\u72b6\u6001\uff1a", None))
-        self.stat_combobox.setItemText(0, QCoreApplication.translate("Dialog", u"\u6b63\u5e38", None))
-        self.stat_combobox.setItemText(1, QCoreApplication.translate("Dialog", u"\u4e2d\u6bd2", None))
-        self.stat_combobox.setItemText(2, QCoreApplication.translate("Dialog", u"\u8870\u5f31", None))
-
         self.label_31.setText(QCoreApplication.translate("Dialog", u"\u653b\u51fb\u52a8\u753b\uff1a", None))
+        self.label_16.setText(QCoreApplication.translate("Dialog", u"\u6bcf\u56de\u5408\u653b\u51fb\u6b21\u6570\uff1a", None))
         self.atkanm_combobox.setItemText(0, QCoreApplication.translate("Dialog", u"\u7a7a\u624b", None))
         self.atkanm_combobox.setItemText(1, QCoreApplication.translate("Dialog", u"\u94c1\u5251", None))
         self.atkanm_combobox.setItemText(2, QCoreApplication.translate("Dialog", u"\u94f6\u5251", None))
@@ -511,6 +515,14 @@ class Ui_Dialog(object):
         self.atkanm_combobox.setItemText(4, QCoreApplication.translate("Dialog", u"\u5723\u5251", None))
         self.atkanm_combobox.setItemText(5, QCoreApplication.translate("Dialog", u"\u795e\u5723\u5251", None))
 
+        self.label_21.setText(QCoreApplication.translate("Dialog", u"\u653b\u51fb\u4e34\u754c\u503c\uff1a", None))
+        self.label_23.setText(QCoreApplication.translate("Dialog", u"\u5f53\u524d\u72b6\u6001\uff1a", None))
+        self.stat_combobox.setItemText(0, QCoreApplication.translate("Dialog", u"\u6b63\u5e38", None))
+        self.stat_combobox.setItemText(1, QCoreApplication.translate("Dialog", u"\u4e2d\u6bd2", None))
+        self.stat_combobox.setItemText(2, QCoreApplication.translate("Dialog", u"\u8870\u5f31", None))
+
+        self.label_22.setText(QCoreApplication.translate("Dialog", u"\u9632\u5fa1\u4e34\u754c\u503c\uff1a", None))
+        self.label_32.setText(QCoreApplication.translate("Dialog", u"\u66b4\u51fb\u51e0\u7387\uff1a", None))
         self.groupBox_5.setTitle(QCoreApplication.translate("Dialog", u"\u6742\u9879", None))
         self.label_26.setText(QCoreApplication.translate("Dialog", u"\u697c\u5c42\u4f20\u9001\u5668\u5141\u8bb8\u4f20\u9001\u7684\u697c\u5c42\uff1a", None))
         self.label_25.setText(QCoreApplication.translate("Dialog", u"B5F\u5546\u5e97\u52a0\u70b9\u91d1\u5e01\uff1a", None))
