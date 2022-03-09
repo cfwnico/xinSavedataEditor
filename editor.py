@@ -70,6 +70,7 @@ class SaveEditor(QMainWindow, MainWindow):
         self.save_combobox.currentIndexChanged.connect(self.update_map)
 
     def update_map(self):
+        self.save_combobox.setEnabled(True)
         save_index = self.save_combobox.currentIndex() + 1
         check_str = f"save{save_index}svdata"
         if not check_str in self.sol_obj:
@@ -84,7 +85,6 @@ class SaveEditor(QMainWindow, MainWindow):
         self.draw_map(f0_str)
         self.floor_widget.setCurrentRow(0)
         self.set_button_enabled(True)
-        self.save_combobox.setEnabled(True)
 
     def set_button_enabled(self, bool: bool):
         self.destroy_button.setEnabled(bool)
