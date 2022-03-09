@@ -127,7 +127,7 @@
     <item row="6" column="0">
      <widget class="QLabel" name="label_20">
       <property name="toolTip">
-       <string>生命归0后增加2000血的道具</string>
+       <string>生命归0后增加2000血的道具，一场战斗可以多次触发该道具</string>
       </property>
       <property name="text">
        <string>复活十字：</string>
@@ -339,7 +339,7 @@
        <number>-25</number>
       </property>
       <property name="maximum">
-       <number>20</number>
+       <number>110</number>
       </property>
      </widget>
     </item>
@@ -386,6 +386,9 @@
     </item>
     <item row="2" column="0">
      <widget class="QLabel" name="label_18">
+      <property name="toolTip">
+       <string>负数代表地下层，100~110代表魔塔楼层，请勿输入不存在的楼层！</string>
+      </property>
       <property name="text">
        <string>当前楼层：</string>
       </property>
@@ -393,6 +396,9 @@
     </item>
     <item row="0" column="0">
      <widget class="QLabel" name="label_14">
+      <property name="toolTip">
+       <string>为了防止卡到墙里，请谨慎修改！</string>
+      </property>
       <property name="text">
        <string>勇者坐标：X：</string>
       </property>
@@ -400,6 +406,9 @@
     </item>
     <item row="1" column="0">
      <widget class="QLabel" name="label_15">
+      <property name="toolTip">
+       <string>为了防止卡到墙里，请谨慎修改！</string>
+      </property>
       <property name="text">
        <string>勇者坐标：Y：</string>
       </property>
@@ -576,6 +585,9 @@
     </item>
     <item row="2" column="0" colspan="2">
      <widget class="QLabel" name="label_26">
+      <property name="toolTip">
+       <string>最低楼层-25，最高楼层20，请勿输入不存在的楼层</string>
+      </property>
       <property name="text">
        <string>楼层传送器允许传送的楼层：</string>
       </property>
@@ -610,7 +622,7 @@
       <item>
        <widget class="QLabel" name="label_28">
         <property name="text">
-         <string>最低</string>
+         <string>最低：</string>
         </property>
        </widget>
       </item>
@@ -634,7 +646,7 @@
       <item>
        <widget class="QLabel" name="label_29">
         <property name="text">
-         <string>最高</string>
+         <string>最高：</string>
         </property>
        </widget>
       </item>
@@ -683,6 +695,9 @@
      <width>161</width>
      <height>101</height>
     </rect>
+   </property>
+   <property name="toolTip">
+    <string>cfw</string>
    </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;By Python 3.10.2&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;GUI PySide6&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;Author:cfw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>

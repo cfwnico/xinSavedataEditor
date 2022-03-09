@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'settingKVfCDB.ui'
+## Form generated from reading UI file 'settingLtIoOs.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -233,7 +233,7 @@ class Ui_Dialog(object):
         self.nowfloor_edit = QSpinBox(self.groupBox_4)
         self.nowfloor_edit.setObjectName(u"nowfloor_edit")
         self.nowfloor_edit.setMinimum(-25)
-        self.nowfloor_edit.setMaximum(20)
+        self.nowfloor_edit.setMaximum(110)
 
         self.gridLayout_3.addWidget(self.nowfloor_edit, 2, 1, 1, 1)
 
@@ -483,7 +483,7 @@ class Ui_Dialog(object):
         self.chor_check.setText(QCoreApplication.translate("Dialog", u"\u5c0f\u5077\u9504\u5934", None))
         self.label_13.setText(QCoreApplication.translate("Dialog", u"\u5b9d\u77f3\u9504\u5934\uff1a", None))
 #if QT_CONFIG(tooltip)
-        self.label_20.setToolTip(QCoreApplication.translate("Dialog", u"\u751f\u547d\u5f520\u540e\u589e\u52a02000\u8840\u7684\u9053\u5177", None))
+        self.label_20.setToolTip(QCoreApplication.translate("Dialog", u"\u751f\u547d\u5f520\u540e\u589e\u52a02000\u8840\u7684\u9053\u5177\uff0c\u4e00\u573a\u6218\u6597\u53ef\u4ee5\u591a\u6b21\u89e6\u53d1\u8be5\u9053\u5177", None))
 #endif // QT_CONFIG(tooltip)
         self.label_20.setText(QCoreApplication.translate("Dialog", u"\u590d\u6d3b\u5341\u5b57\uff1a", None))
 #if QT_CONFIG(tooltip)
@@ -502,8 +502,17 @@ class Ui_Dialog(object):
         self.currenfloor_label.setText("")
         self.label_19.setText(QCoreApplication.translate("Dialog", u"\u5b58\u6863\u540d\u79f0\uff1a", None))
         self.label_17.setText(QCoreApplication.translate("Dialog", u"\u697c\u5c42\uff1a", None))
+#if QT_CONFIG(tooltip)
+        self.label_18.setToolTip(QCoreApplication.translate("Dialog", u"\u8d1f\u6570\u4ee3\u8868\u5730\u4e0b\u5c42\uff0c100~110\u4ee3\u8868\u9b54\u5854\u697c\u5c42\uff0c\u8bf7\u52ff\u8f93\u5165\u4e0d\u5b58\u5728\u7684\u697c\u5c42\uff01", None))
+#endif // QT_CONFIG(tooltip)
         self.label_18.setText(QCoreApplication.translate("Dialog", u"\u5f53\u524d\u697c\u5c42\uff1a", None))
+#if QT_CONFIG(tooltip)
+        self.label_14.setToolTip(QCoreApplication.translate("Dialog", u"\u4e3a\u4e86\u9632\u6b62\u5361\u5230\u5899\u91cc\uff0c\u8bf7\u8c28\u614e\u4fee\u6539\uff01", None))
+#endif // QT_CONFIG(tooltip)
         self.label_14.setText(QCoreApplication.translate("Dialog", u"\u52c7\u8005\u5750\u6807\uff1aX\uff1a", None))
+#if QT_CONFIG(tooltip)
+        self.label_15.setToolTip(QCoreApplication.translate("Dialog", u"\u4e3a\u4e86\u9632\u6b62\u5361\u5230\u5899\u91cc\uff0c\u8bf7\u8c28\u614e\u4fee\u6539\uff01", None))
+#endif // QT_CONFIG(tooltip)
         self.label_15.setText(QCoreApplication.translate("Dialog", u"\u52c7\u8005\u5750\u6807\uff1aY\uff1a", None))
         self.groupBox_3.setTitle(QCoreApplication.translate("Dialog", u"\u6218\u6597\u76f8\u5173", None))
         self.label_31.setText(QCoreApplication.translate("Dialog", u"\u653b\u51fb\u52a8\u753b\uff1a", None))
@@ -524,14 +533,20 @@ class Ui_Dialog(object):
         self.label_22.setText(QCoreApplication.translate("Dialog", u"\u9632\u5fa1\u4e34\u754c\u503c\uff1a", None))
         self.label_32.setText(QCoreApplication.translate("Dialog", u"\u66b4\u51fb\u51e0\u7387\uff1a", None))
         self.groupBox_5.setTitle(QCoreApplication.translate("Dialog", u"\u6742\u9879", None))
+#if QT_CONFIG(tooltip)
+        self.label_26.setToolTip(QCoreApplication.translate("Dialog", u"\u6700\u4f4e\u697c\u5c42-25\uff0c\u6700\u9ad8\u697c\u5c4220\uff0c\u8bf7\u52ff\u8f93\u5165\u4e0d\u5b58\u5728\u7684\u697c\u5c42", None))
+#endif // QT_CONFIG(tooltip)
         self.label_26.setText(QCoreApplication.translate("Dialog", u"\u697c\u5c42\u4f20\u9001\u5668\u5141\u8bb8\u4f20\u9001\u7684\u697c\u5c42\uff1a", None))
         self.label_25.setText(QCoreApplication.translate("Dialog", u"B5F\u5546\u5e97\u52a0\u70b9\u91d1\u5e01\uff1a", None))
         self.label_24.setText(QCoreApplication.translate("Dialog", u"3F\u5546\u5e97\u52a0\u70b9\u91d1\u5e01\uff1a", None))
-        self.label_28.setText(QCoreApplication.translate("Dialog", u"\u6700\u4f4e", None))
+        self.label_28.setText(QCoreApplication.translate("Dialog", u"\u6700\u4f4e\uff1a", None))
         self.label_27.setText(QCoreApplication.translate("Dialog", u"~", None))
-        self.label_29.setText(QCoreApplication.translate("Dialog", u"\u6700\u9ad8", None))
+        self.label_29.setText(QCoreApplication.translate("Dialog", u"\u6700\u9ad8\uff1a", None))
         self.save_button.setText(QCoreApplication.translate("Dialog", u"\u786e\u5b9a", None))
         self.cancel_button.setText(QCoreApplication.translate("Dialog", u"\u53d6\u6d88", None))
+#if QT_CONFIG(tooltip)
+        self.label_30.setToolTip(QCoreApplication.translate("Dialog", u"cfw", None))
+#endif // QT_CONFIG(tooltip)
         self.label_30.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"right\">By Python 3.10.2</p><p align=\"right\">GUI PySide6</p><p align=\"right\">Author:cfw</p></body></html>", None))
     # retranslateUi
 

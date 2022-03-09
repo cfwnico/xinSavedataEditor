@@ -93,7 +93,7 @@ class SaveEditor(QMainWindow, MainWindow):
         self.editother_button.setEnabled(bool)
         self.savefile_button.setEnabled(bool)
 
-    def calculate_xy(self):
+    def calculate_xy(self):  # 计算lable坐标
         xy_offset = 52
         self.xy_list = []
         for i1 in range(11):
@@ -103,7 +103,7 @@ class SaveEditor(QMainWindow, MainWindow):
                 xy = (x + xy_offset, y + xy_offset)
                 self.xy_list.append(xy)
 
-    def setup_label(self):
+    def setup_label(self):  # 创建lable
         self.label_list = []
         for index in range(121):
             object_name = "label_" + str(index)
@@ -184,16 +184,24 @@ class SaveEditor(QMainWindow, MainWindow):
         export_str = ""
         for label_widget in self.label_list:
             text = label_widget.toolTip()
+            if text == "":
+                return
             text = text + "$"
             export_str = export_str + text
         return export_str
 
     def save_floor(self):
         floor_str = self.export_floor_str()
+        if floor_str is None:
+            error_msg(self, "警告！", "保存楼层信息出错，存档未保存！")
+            return
         selcet_item = self.floor_widget.selectedItems()[0]
         item_index = self.floor_widget.row(selcet_item)
         floor_name = self.floor_name_list[item_index]
-        self.sol_obj[floor_name] = floor_str
+        try:
+            self.sol_obj[floor_name] = floor_str
+        except:
+            error_msg(self, "警告！", "存档保存失败！")
 
     def edit_other(self):
         save_index = self.save_combobox.currentIndex() + 1
@@ -224,13 +232,13 @@ class SaveEditor(QMainWindow, MainWindow):
 
     def draw_map(self, floor_str: str):
         split_floor = floor_str.split("$")
-        split_floor = split_floor[0:121]
+        split_floor = split_floor[0:121]  # 切片处理防止意外发生
         for index, text in enumerate(split_floor):
             label_widget = self.label_list[index]
             image_path = os.path.join("images", text + ".png")
             if os.path.exists(image_path):
                 label_widget.setPixmap(QPixmap(image_path))
-            else:
+            else:  # 如果是未知图块号则显示missing图片来提醒
                 label_widget.setPixmap(QPixmap("images/missing.png"))
             label_widget.setToolTip(text)
 
@@ -312,17 +320,17 @@ class Setting(QDialog, SettingWindow):
         }
         self.key_list_now = []
         self.key_widgets_now = {}
-        if self.save_index == 1:
+        if self.save_index == 1:  # 如果存档槽位为1则不作处理
             self.key_widgets_now = self.key_widgets_default
 
             for key in self.key_widgets_default:
                 self.key_list_now.append(key)
-        else:
+        else:  # 如果存档槽位不为1则对字符串进行替换
             for key in self.key_widgets_default:
                 now_key = key.replace("save1", f"save{self.save_index}")
                 self.key_widgets_now[now_key] = self.key_widgets_default[key]
                 self.key_list_now.append(now_key)
-
+        # 设置攻击动画序号
         self.atkanm_list = [2, 20, 134, 141, 148, 153]
 
     def load_data(self):
@@ -364,16 +372,17 @@ class Setting(QDialog, SettingWindow):
                     value = -1
                 self.sol_obj[key] = value
         # 单独处理save currentfloor
-        floor_value = self.sol_obj[f"save{self.save_index}nowfloor"]
-        obj_str = f"save{self.save_index}currentfloor"
-        if floor_value == 0:
-            self.sol_obj[obj_str] = "入口"
+        nowfloor_value = self.sol_obj[f"save{self.save_index}nowfloor"]
+        curfloor_key = f"save{self.save_index}currentfloor"
+        if nowfloor_value == 0:
+            self.sol_obj[curfloor_key] = "入口"
+        elif nowfloor_value >= 100:
+            self.sol_obj[curfloor_key] = str(nowfloor_value - 100) + "F"
         else:
-            self.sol_obj[obj_str] = str(abs(floor_value)) + "F"
+            self.sol_obj[curfloor_key] = str(abs(nowfloor_value)) + "F"
         # 设置状态
-        self.sol_obj[
-            f"save{self.save_index}tostats"
-        ] = self.stat_combobox.currentIndex()
+        stats_value = f"save{self.save_index}tostats"
+        self.sol_obj[stats_value] = self.stat_combobox.currentIndex()
         # 设置攻击动画
         atkanm_value = self.atkanm_combobox.currentIndex()
         self.sol_obj[f"save{self.save_index}attype"] = self.atkanm_list[atkanm_value]
