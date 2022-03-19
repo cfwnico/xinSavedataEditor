@@ -704,6 +704,44 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>lv_edit</tabstop>
+  <tabstop>hp_edit</tabstop>
+  <tabstop>atk_edit</tabstop>
+  <tabstop>def_edit</tabstop>
+  <tabstop>miss_edit</tabstop>
+  <tabstop>exp_edit</tabstop>
+  <tabstop>gold_edit</tabstop>
+  <tabstop>yellow_edit</tabstop>
+  <tabstop>blue_edit</tabstop>
+  <tabstop>red_edit</tabstop>
+  <tabstop>nod_edit</tabstop>
+  <tabstop>nok_edit</tabstop>
+  <tabstop>bigchor_edit</tabstop>
+  <tabstop>relive_edit</tabstop>
+  <tabstop>fly_check</tabstop>
+  <tabstop>ddd_check</tabstop>
+  <tabstop>ice_check</tabstop>
+  <tabstop>magicdef_check</tabstop>
+  <tabstop>chor_check</tabstop>
+  <tabstop>key_check</tabstop>
+  <tabstop>x_edit</tabstop>
+  <tabstop>y_edit</tabstop>
+  <tabstop>nowfloor_edit</tabstop>
+  <tabstop>savename_edit</tabstop>
+  <tabstop>atktimes_edit</tabstop>
+  <tabstop>baoji_edit</tabstop>
+  <tabstop>atknear_edit</tabstop>
+  <tabstop>defnear_edit</tabstop>
+  <tabstop>stat_combobox</tabstop>
+  <tabstop>atkanm_combobox</tabstop>
+  <tabstop>shop3f_edit</tabstop>
+  <tabstop>shopb5f_edit</tabstop>
+  <tabstop>minf_edit</tabstop>
+  <tabstop>maxf_edit</tabstop>
+  <tabstop>save_button</tabstop>
+  <tabstop>cancel_button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

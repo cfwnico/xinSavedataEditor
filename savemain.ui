@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>新新魔塔存档编辑器 V0.2</string>
+   <string>新新魔塔存档编辑器 V1.0</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="layoutWidget">

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'settingLtIoOs.ui'
+## Form generated from reading UI file 'settingGLLFIc.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -453,6 +453,41 @@ class Ui_Dialog(object):
         self.label_30 = QLabel(Dialog)
         self.label_30.setObjectName(u"label_30")
         self.label_30.setGeometry(QRect(250, 450, 161, 101))
+        QWidget.setTabOrder(self.lv_edit, self.hp_edit)
+        QWidget.setTabOrder(self.hp_edit, self.atk_edit)
+        QWidget.setTabOrder(self.atk_edit, self.def_edit)
+        QWidget.setTabOrder(self.def_edit, self.miss_edit)
+        QWidget.setTabOrder(self.miss_edit, self.exp_edit)
+        QWidget.setTabOrder(self.exp_edit, self.gold_edit)
+        QWidget.setTabOrder(self.gold_edit, self.yellow_edit)
+        QWidget.setTabOrder(self.yellow_edit, self.blue_edit)
+        QWidget.setTabOrder(self.blue_edit, self.red_edit)
+        QWidget.setTabOrder(self.red_edit, self.nod_edit)
+        QWidget.setTabOrder(self.nod_edit, self.nok_edit)
+        QWidget.setTabOrder(self.nok_edit, self.bigchor_edit)
+        QWidget.setTabOrder(self.bigchor_edit, self.relive_edit)
+        QWidget.setTabOrder(self.relive_edit, self.fly_check)
+        QWidget.setTabOrder(self.fly_check, self.ddd_check)
+        QWidget.setTabOrder(self.ddd_check, self.ice_check)
+        QWidget.setTabOrder(self.ice_check, self.magicdef_check)
+        QWidget.setTabOrder(self.magicdef_check, self.chor_check)
+        QWidget.setTabOrder(self.chor_check, self.key_check)
+        QWidget.setTabOrder(self.key_check, self.x_edit)
+        QWidget.setTabOrder(self.x_edit, self.y_edit)
+        QWidget.setTabOrder(self.y_edit, self.nowfloor_edit)
+        QWidget.setTabOrder(self.nowfloor_edit, self.savename_edit)
+        QWidget.setTabOrder(self.savename_edit, self.atktimes_edit)
+        QWidget.setTabOrder(self.atktimes_edit, self.baoji_edit)
+        QWidget.setTabOrder(self.baoji_edit, self.atknear_edit)
+        QWidget.setTabOrder(self.atknear_edit, self.defnear_edit)
+        QWidget.setTabOrder(self.defnear_edit, self.stat_combobox)
+        QWidget.setTabOrder(self.stat_combobox, self.atkanm_combobox)
+        QWidget.setTabOrder(self.atkanm_combobox, self.shop3f_edit)
+        QWidget.setTabOrder(self.shop3f_edit, self.shopb5f_edit)
+        QWidget.setTabOrder(self.shopb5f_edit, self.minf_edit)
+        QWidget.setTabOrder(self.minf_edit, self.maxf_edit)
+        QWidget.setTabOrder(self.maxf_edit, self.save_button)
+        QWidget.setTabOrder(self.save_button, self.cancel_button)
 
         self.retranslateUi(Dialog)
 

@@ -1,14 +1,14 @@
 # cfw
-# 2022.3.9
-from glob import glob
+# 2022.3.19
 import os
 import sys
+from glob import glob
 
+from pyamf import amf0  # pyinstaller need this import
 from pyamf import sol  # pip install Py3AMF
 from PySide6.QtCore import *
 from PySide6.QtGui import *
 from PySide6.QtWidgets import *
-from pyamf import amf0  # pyinstaller need this import
 
 from ui_savemain import Ui_MainWindow as MainWindow
 from ui_setting import Ui_Dialog as SettingWindow
@@ -307,8 +307,6 @@ class Setting(QDialog, SettingWindow):
             "save1heavyda": self.baoji_edit,
             "save1nearat": self.atknear_edit,
             "save1neardf": self.defnear_edit,
-            # "save1tostats": self.stat_combobox,
-            # "save1attype": self.atkanm_combobox,
             # =========================================
             # 杂项相关
             # =========================================
@@ -322,7 +320,6 @@ class Setting(QDialog, SettingWindow):
         self.key_widgets_now = {}
         if self.save_index == 1:  # 如果存档槽位为1则不作处理
             self.key_widgets_now = self.key_widgets_default
-
             for key in self.key_widgets_default:
                 self.key_list_now.append(key)
         else:  # 如果存档槽位不为1则对字符串进行替换
