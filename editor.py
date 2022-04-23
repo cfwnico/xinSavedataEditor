@@ -1,5 +1,5 @@
 # cfw
-# 2022.3.19
+# 2022.4.23
 import os
 import sys
 from glob import glob
@@ -55,11 +55,11 @@ class SaveEditor(QMainWindow, MainWindow):
         super().__init__()
         self.setupUi(self)
         self.setup_ui()
-        self.calculate_xy()
+        self.calculate_rc()
         self.setup_label()
 
     def setup_ui(self):
-        self.label_bg.setPixmap(QPixmap("images/bg.png"))
+        # self.label_bg.setPixmap(QPixmap("images/bg.png"))
         self.openfile_button.clicked.connect(self.open_sol)
         self.savefile_button.clicked.connect(self.save_sol)
         self.savefloor_button.clicked.connect(self.save_floor)
@@ -93,27 +93,48 @@ class SaveEditor(QMainWindow, MainWindow):
         self.editother_button.setEnabled(bool)
         self.savefile_button.setEnabled(bool)
 
-    def calculate_xy(self):  # 计算lable坐标
-        xy_offset = 52
-        self.xy_list = []
-        for i1 in range(11):
-            for i2 in range(11):
-                y = i1 * 32
-                x = i2 * 32
-                xy = (x + xy_offset, y + xy_offset)
-                self.xy_list.append(xy)
+    def calculate_rc(self):  # 计算lable行列
+        self.rc_list = []
+        for i1 in range(1, 12):
+            for i2 in range(1, 12):
+                rc = (i1, i2)
+                self.rc_list.append(rc)
 
     def setup_label(self):  # 创建lable
         self.label_list = []
         for index in range(121):
             object_name = "label_" + str(index)
-            map_label = MyQLabel(self)
+            map_label = MyQLabel()
             map_label.setObjectName(object_name)
-            map_label.resize(32, 32)
-            x = self.xy_list[index][0]
-            y = self.xy_list[index][1]
-            map_label.move(x, y)
+            map_label.setScaledContents(True)
             self.label_list.append(map_label)
+            row = self.rc_list[index][0]
+            cou = self.rc_list[index][1]
+            self.gridLayout.addWidget(map_label, row, cou)
+        self.setup_bg()
+
+    def setup_bg(self):
+        bg_label_list = []
+        row_cou_list = []
+        for i in range(12):
+            row_cou = (0, i)  # 0,0-0,12
+            row_cou_list.append(row_cou)
+            row_cou = (11, i)  # 12,0-12,12
+            row_cou_list.append(row_cou)
+            row_cou = (i, 0)  # 0,0-12,0
+            row_cou_list.append(row_cou)
+            row_cou = (i, 11)  # 0,12-12,12
+            row_cou_list.append(row_cou)
+        row_cou_list = list(set(row_cou_list))
+        for i in range(len(row_cou_list)):
+            bg_label = QLabel()
+            bg_label.setScaledContents(True)
+            bg_label.setPixmap(QPixmap("images/91.png"))
+            bg_label_list.append(bg_label)
+        for index, label in enumerate(bg_label_list):
+            row = row_cou_list[index][0]
+            cou = row_cou_list[index][1]
+            self.gridLayout.addWidget(label, row, cou)
 
     def set_floor_name(self, save_index: int):
         self.floor_name_dict = {}

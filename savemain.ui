@@ -16,141 +16,139 @@
     <height>460</height>
    </size>
   </property>
-  <property name="maximumSize">
-   <size>
-    <width>550</width>
-    <height>460</height>
-   </size>
-  </property>
   <property name="windowTitle">
    <string>新新魔塔存档编辑器 V1.0</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="layoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>10</y>
-      <width>82</width>
-      <height>168</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QPushButton" name="openfile_button">
-       <property name="text">
-        <string>打开存档</string>
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="20,1">
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="minimumSize">
+       <size>
+        <width>416</width>
+        <height>416</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="leftMargin">
+        <number>0</number>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="destroy_button">
-       <property name="enabled">
-        <bool>false</bool>
+       <property name="topMargin">
+        <number>0</number>
        </property>
-       <property name="text">
-        <string>清除墙体</string>
+       <property name="rightMargin">
+        <number>0</number>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="replace_button">
-       <property name="enabled">
-        <bool>false</bool>
+       <property name="bottomMargin">
+        <number>0</number>
        </property>
-       <property name="text">
-        <string>替换图块</string>
+       <property name="spacing">
+        <number>0</number>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="savefloor_button">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>保存当前楼层</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="editother_button">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>修改其他项</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="savefile_button">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <property name="text">
-        <string>保存存档</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QComboBox" name="save_combobox">
-       <property name="enabled">
-        <bool>false</bool>
-       </property>
-       <item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>3</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="openfile_button">
         <property name="text">
-         <string>存档1</string>
+         <string>打开存档</string>
         </property>
-       </item>
-       <item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="destroy_button">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
-         <string>存档2</string>
+         <string>清除墙体</string>
         </property>
-       </item>
-       <item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="replace_button">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
-         <string>存档3</string>
+         <string>替换图块</string>
         </property>
-       </item>
-       <item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="savefloor_button">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
-         <string>存档4</string>
+         <string>保存当前楼层</string>
         </property>
-       </item>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QLabel" name="label_bg">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>20</y>
-      <width>416</width>
-      <height>416</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="buddy">
-     <cstring>label_bg</cstring>
-    </property>
-   </widget>
-   <widget class="QListWidget" name="floor_widget">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>180</y>
-      <width>81</width>
-      <height>261</height>
-     </rect>
-    </property>
-   </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="editother_button">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>修改其他项</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="savefile_button">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>保存存档</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="save_combobox">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <item>
+         <property name="text">
+          <string>存档1</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>存档2</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>存档3</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>存档4</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="floor_widget"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

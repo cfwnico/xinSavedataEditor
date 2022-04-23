@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'savemainBZDFBn.ui'
+## Form generated from reading UI file 'savemainCKqhUx.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QLabel, QListWidget,
-    QListWidgetItem, QMainWindow, QPushButton, QSizePolicy,
-    QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
+    QHBoxLayout, QListWidget, QListWidgetItem, QMainWindow,
+    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -25,52 +25,61 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(550, 460)
         MainWindow.setMinimumSize(QSize(550, 460))
-        MainWindow.setMaximumSize(QSize(550, 460))
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.layoutWidget = QWidget(self.centralwidget)
-        self.layoutWidget.setObjectName(u"layoutWidget")
-        self.layoutWidget.setGeometry(QRect(450, 10, 82, 168))
-        self.verticalLayout = QVBoxLayout(self.layoutWidget)
-        self.verticalLayout.setSpacing(0)
+        self.horizontalLayout = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.frame = QFrame(self.centralwidget)
+        self.frame.setObjectName(u"frame")
+        self.frame.setMinimumSize(QSize(416, 416))
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.gridLayout = QGridLayout(self.frame)
+        self.gridLayout.setSpacing(0)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+
+        self.horizontalLayout.addWidget(self.frame)
+
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setSpacing(3)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.openfile_button = QPushButton(self.layoutWidget)
+        self.openfile_button = QPushButton(self.centralwidget)
         self.openfile_button.setObjectName(u"openfile_button")
 
         self.verticalLayout.addWidget(self.openfile_button)
 
-        self.destroy_button = QPushButton(self.layoutWidget)
+        self.destroy_button = QPushButton(self.centralwidget)
         self.destroy_button.setObjectName(u"destroy_button")
         self.destroy_button.setEnabled(False)
 
         self.verticalLayout.addWidget(self.destroy_button)
 
-        self.replace_button = QPushButton(self.layoutWidget)
+        self.replace_button = QPushButton(self.centralwidget)
         self.replace_button.setObjectName(u"replace_button")
         self.replace_button.setEnabled(False)
 
         self.verticalLayout.addWidget(self.replace_button)
 
-        self.savefloor_button = QPushButton(self.layoutWidget)
+        self.savefloor_button = QPushButton(self.centralwidget)
         self.savefloor_button.setObjectName(u"savefloor_button")
         self.savefloor_button.setEnabled(False)
 
         self.verticalLayout.addWidget(self.savefloor_button)
 
-        self.editother_button = QPushButton(self.layoutWidget)
+        self.editother_button = QPushButton(self.centralwidget)
         self.editother_button.setObjectName(u"editother_button")
         self.editother_button.setEnabled(False)
 
         self.verticalLayout.addWidget(self.editother_button)
 
-        self.savefile_button = QPushButton(self.layoutWidget)
+        self.savefile_button = QPushButton(self.centralwidget)
         self.savefile_button.setObjectName(u"savefile_button")
         self.savefile_button.setEnabled(False)
 
         self.verticalLayout.addWidget(self.savefile_button)
 
-        self.save_combobox = QComboBox(self.layoutWidget)
+        self.save_combobox = QComboBox(self.centralwidget)
         self.save_combobox.addItem("")
         self.save_combobox.addItem("")
         self.save_combobox.addItem("")
@@ -80,16 +89,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.save_combobox)
 
-        self.label_bg = QLabel(self.centralwidget)
-        self.label_bg.setObjectName(u"label_bg")
-        self.label_bg.setGeometry(QRect(20, 20, 416, 416))
         self.floor_widget = QListWidget(self.centralwidget)
         self.floor_widget.setObjectName(u"floor_widget")
-        self.floor_widget.setGeometry(QRect(450, 180, 81, 261))
+
+        self.verticalLayout.addWidget(self.floor_widget)
+
+
+        self.horizontalLayout.addLayout(self.verticalLayout)
+
+        self.horizontalLayout.setStretch(0, 20)
+        self.horizontalLayout.setStretch(1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
-#if QT_CONFIG(shortcut)
-        self.label_bg.setBuddy(self.label_bg)
-#endif // QT_CONFIG(shortcut)
 
         self.retranslateUi(MainWindow)
 
@@ -109,6 +119,5 @@ class Ui_MainWindow(object):
         self.save_combobox.setItemText(2, QCoreApplication.translate("MainWindow", u"\u5b58\u68633", None))
         self.save_combobox.setItemText(3, QCoreApplication.translate("MainWindow", u"\u5b58\u68634", None))
 
-        self.label_bg.setText("")
     # retranslateUi
 
