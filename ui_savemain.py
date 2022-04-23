@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'savemainCKqhUx.ui'
+## Form generated from reading UI file 'savemainoxLieK.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.2.2
 ##
@@ -107,7 +107,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u65b0\u65b0\u9b54\u5854\u5b58\u6863\u7f16\u8f91\u5668 V1.0", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"\u65b0\u65b0\u9b54\u5854\u5b58\u6863\u7f16\u8f91\u5668 V1.1", None))
         self.openfile_button.setText(QCoreApplication.translate("MainWindow", u"\u6253\u5f00\u5b58\u6863", None))
         self.destroy_button.setText(QCoreApplication.translate("MainWindow", u"\u6e05\u9664\u5899\u4f53", None))
         self.replace_button.setText(QCoreApplication.translate("MainWindow", u"\u66ff\u6362\u56fe\u5757", None))
