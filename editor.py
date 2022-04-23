@@ -116,14 +116,14 @@ class SaveEditor(QMainWindow, MainWindow):
     def setup_bg(self):
         bg_label_list = []
         row_cou_list = []
-        for i in range(12):
+        for i in range(13):
             row_cou = (0, i)  # 0,0-0,12
             row_cou_list.append(row_cou)
-            row_cou = (11, i)  # 12,0-12,12
+            row_cou = (12, i)  # 12,0-12,12
             row_cou_list.append(row_cou)
             row_cou = (i, 0)  # 0,0-12,0
             row_cou_list.append(row_cou)
-            row_cou = (i, 11)  # 0,12-12,12
+            row_cou = (i, 12)  # 0,12-12,12
             row_cou_list.append(row_cou)
         row_cou_list = list(set(row_cou_list))
         for i in range(len(row_cou_list)):
