@@ -14,6 +14,13 @@ from ui_savemain import Ui_MainWindow as MainWindow
 from ui_setting import Ui_Dialog as SettingWindow
 
 
+def resource_path(*parts):
+    """资源路径：兼容开发环境和 PyInstaller --onefile 打包"""
+    if getattr(sys, 'frozen', False):
+        return os.path.join(sys._MEIPASS, *parts)
+    return os.path.join(os.path.abspath("."), *parts)
+
+
 def error_msg(parent, title, text):
     QMessageBox(QMessageBox.Warning, title, text, QMessageBox.Ok, parent).exec()
 
@@ -38,11 +45,11 @@ class MyQLabel(QLabel):
         )
         if ok:
             image_filename = str(pic_num) + ".png"
-            image_path = os.path.join("images", image_filename)
+            image_path = resource_path("images", image_filename)
             if os.path.exists(image_path):
                 self.setPixmap(QPixmap(image_path))
             else:
-                self.setPixmap(QPixmap("images/missing.png"))
+                self.setPixmap(QPixmap(resource_path("images", "missing.png")))
             self.setToolTip(str(pic_num))
 
     def clear_all(self):
@@ -129,7 +136,7 @@ class SaveEditor(QMainWindow, MainWindow):
         for i in range(len(row_cou_list)):
             bg_label = QLabel()
             bg_label.setScaledContents(True)
-            bg_label.setPixmap(QPixmap("images/91.png"))
+            bg_label.setPixmap(QPixmap(resource_path("images", "91.png")))
             bg_label_list.append(bg_label)
         for index, label in enumerate(bg_label_list):
             row = row_cou_list[index][0]
@@ -236,7 +243,7 @@ class SaveEditor(QMainWindow, MainWindow):
         for label_widget in self.label_list:
             pic_number = int(label_widget.toolTip())
             if pic_number == 89 or pic_number == 92 or pic_number == 93:
-                image_path = os.path.join("images", "126.png")
+                image_path = resource_path("images", "126.png")
                 label_widget.setPixmap(QPixmap(image_path))
                 label_widget.setToolTip("126")
 
@@ -254,7 +261,7 @@ class SaveEditor(QMainWindow, MainWindow):
         for label_widget in self.label_list:
             pic_number = int(label_widget.toolTip())
             if pic_number == src_num:
-                image_path = os.path.join("images", str(tag_num) + ".png")
+                image_path = resource_path("images", str(tag_num) + ".png")
                 label_widget.setPixmap(QPixmap(image_path))
                 label_widget.setToolTip(str(tag_num))
 
@@ -263,11 +270,11 @@ class SaveEditor(QMainWindow, MainWindow):
         split_floor = split_floor[0:121]  # 切片处理防止意外发生
         for index, text in enumerate(split_floor):
             label_widget = self.label_list[index]
-            image_path = os.path.join("images", text + ".png")
+            image_path = resource_path("images", text + ".png")
             if os.path.exists(image_path):
                 label_widget.setPixmap(QPixmap(image_path))
             else:  # 如果是未知图块号则显示missing图片来提醒
-                label_widget.setPixmap(QPixmap("images/missing.png"))
+                label_widget.setPixmap(QPixmap(resource_path("images", "missing.png")))
             label_widget.setToolTip(text)
 
     def change_selectmap(self):
