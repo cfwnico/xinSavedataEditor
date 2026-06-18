@@ -700,7 +700,7 @@
     <string>cfw</string>
    </property>
    <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;By Python 3.10.2&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;GUI PySide6&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;Author:cfw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;By Python 3.11.5&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;GUI PySide6&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;Author:cfw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QGroupBox" name="groupBox_6">

@@ -639,7 +639,7 @@ class Ui_Dialog(object):
 #if QT_CONFIG(tooltip)
         self.label_30.setToolTip(QCoreApplication.translate("Dialog", u"cfw", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_30.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"right\">By Python 3.10.2</p><p align=\"right\">GUI PySide6</p><p align=\"right\">Author:cfw</p></body></html>", None))
+        self.label_30.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p align=\"right\">By Python 3.11.5</p><p align=\"right\">GUI PySide6</p><p align=\"right\">Author:cfw</p></body></html>", None))
         self.groupBox_6.setTitle(QCoreApplication.translate("Dialog", u"\u7ae0\u7b49\u7ea7", None))
         self.label_33.setText(QCoreApplication.translate("Dialog", u"\u8d24\u8005\u4e4b\u8bc1\uff1a", None))
         self.label_36.setText(QCoreApplication.translate("Dialog", u"LV1=60;LV2=80;LV3=100", None))
