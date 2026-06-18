@@ -1,0 +1,170 @@
+function checkGame()
+{
+   var _loc2_ = _root.p1_1;
+   if(_loc2_ != undefined)
+   {
+      startSending();
+      return true;
+   }
+   return false;
+}
+function waitForGame()
+{
+   if(checkGame())
+   {
+      return undefined;
+   }
+   setTimeout(waitForGame,500);
+}
+function startSending()
+{
+   setInterval(sendMapData,300000);
+   setInterval(startFullMapBatchSend,30000);
+}
+function getMapString()
+{
+   var _loc2_ = "";
+   var _loc3_ = 1;
+   var _loc4_;
+   var _loc5_;
+   while(_loc3_ <= 11)
+   {
+      _loc4_ = 1;
+      while(_loc4_ <= 11)
+      {
+         _loc5_ = _root["p" + _loc4_ + "_" + _loc3_];
+         if(_loc5_ != undefined)
+         {
+            _loc2_ += _loc5_._currentframe;
+         }
+         else
+         {
+            _loc2_ += "0";
+         }
+         if(_loc4_ < 11 || _loc3_ < 11)
+         {
+            _loc2_ += "$";
+         }
+         _loc4_ += 1;
+      }
+      _loc3_ += 1;
+   }
+   var _loc6_ = new Object();
+   _loc6_[_root.nowfloor] = _loc2_;
+   return _loc6_;
+}
+function getAllMapString()
+{
+   var _loc2_ = new Object();
+   var _loc3_ = 0;
+   while(_loc3_ <= 20)
+   {
+      if(_root.flor[_loc3_] != undefined)
+      {
+         _loc2_[_loc3_] = _root.flor[_loc3_];
+      }
+      else
+      {
+         _loc2_[_loc3_] = "";
+      }
+      _loc3_ += 1;
+   }
+   _loc3_ = 1;
+   var _loc4_;
+   while(_loc3_ <= 25)
+   {
+      _loc4_ = - _loc3_;
+      if(_root.bfloor[_loc3_] != undefined)
+      {
+         _loc2_[_loc4_] = _root.bfloor[_loc3_];
+      }
+      else
+      {
+         _loc2_[_loc4_] = "";
+      }
+      _loc3_ += 1;
+   }
+   _loc3_ = 101;
+   var _loc5_;
+   while(_loc3_ <= 110)
+   {
+      _loc5_ = _loc3_ - 100;
+      if(_root.ofloor[_loc5_] != undefined)
+      {
+         _loc2_[_loc3_] = _root.ofloor[_loc5_];
+      }
+      else
+      {
+         _loc2_[_loc3_] = "";
+      }
+      _loc3_ += 1;
+   }
+   return _loc2_;
+}
+function sendMapData()
+{
+   var _loc2_ = new Array();
+   _loc2_.push("currentx=" + escape(_root.currentx));
+   _loc2_.push("currenty=" + escape(_root.currenty));
+   _loc2_.push("nowfloor=" + escape(_root.nowfloor));
+   _loc2_.push("at=" + escape(_root.at));
+   _loc2_.push("df=" + escape(_root.df));
+   _loc2_.push("attimes=" + escape(_root.attimes));
+   _loc2_.push("nearat=" + escape(_root.nearat));
+   _loc2_.push("neardf=" + escape(_root.neardf));
+   _loc2_.push("maxgou=" + escape(_root.maxgou));
+   _loc2_.push("maxgoo=" + escape(_root.maxgoo));
+   _loc2_.push("intter=" + escape(_root.intter));
+   _loc2_.push("king=" + escape(_root.king));
+   var _loc3_ = getMapString();
+   for(var _loc4_ in _loc3_)
+   {
+      _loc2_.push(_loc4_ + "=" + escape(_loc3_[_loc4_]));
+   }
+   var _loc5_ = "http://127.0.0.1:12345/?data=" + _loc2_.join("&");
+   var _loc6_ = new LoadVars();
+   _loc6_.load(_loc5_,"_self","GET");
+}
+function startFullMapBatchSend()
+{
+   _root.fullMapQueue = getAllMapString();
+   _root.fullMapKeys = new Array();
+   for(var _loc2_ in _root.fullMapQueue)
+   {
+      _root.fullMapKeys.push(_loc2_);
+   }
+   _root.fullMapIndex = 0;
+   sendNextMapBatch();
+}
+function sendNextMapBatch()
+{
+   if(_root.fullMapIndex >= _root.fullMapKeys.length)
+   {
+      return undefined;
+   }
+   var _loc2_ = new Array();
+   _loc2_.push("currentx=" + escape(_root.currentx));
+   _loc2_.push("currenty=" + escape(_root.currenty));
+   _loc2_.push("nowfloor=" + escape(_root.nowfloor));
+   var _loc3_ = 0;
+   var _loc4_;
+   while(_loc3_ < 5 && _root.fullMapIndex < _root.fullMapKeys.length)
+   {
+      _loc4_ = _root.fullMapKeys[_root.fullMapIndex];
+      _loc2_.push(_loc4_ + "=" + escape(_root.fullMapQueue[_loc4_]));
+      _root.fullMapIndex++;
+      _loc3_ += 1;
+   }
+   var _loc5_ = "http://127.0.0.1:12345/?data=" + _loc2_.join("&");
+   var _loc6_ = new LoadVars();
+   _loc6_.load(_loc5_,"_self","GET");
+   setTimeout(sendNextMapBatch,300);
+}
+getURL("fscommand:" + "showmenu","false");
+_root.tota = getBytesTotal();
+13;
+7;
+2;
+setTimeout(waitForGame,1000);
+_root.fullMapQueue = null;
+_root.fullMapIndex = 0;

@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>435</width>
+    <height>750</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>435</width>
+    <height>750</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>435</width>
+    <height>750</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>修改其他项...</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>20</y>
+     <width>241</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>道具相关</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>黄钥匙：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QCheckBox" name="fly_check">
+      <property name="text">
+       <string>楼层传送</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>蓝钥匙：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QCheckBox" name="ddd_check">
+      <property name="text">
+       <string>怪物手册</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>红钥匙：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QCheckBox" name="ice_check">
+      <property name="toolTip">
+       <string>消除火网陷阱的道具</string>
+      </property>
+      <property name="text">
+       <string>冰之护符</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>任意门：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QCheckBox" name="magicdef_check">
+      <property name="toolTip">
+       <string>降低法师防御力的道具</string>
+      </property>
+      <property name="text">
+       <string>魔法护符</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_12">
+      <property name="text">
+       <string>神剑之证：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QCheckBox" name="chor_check">
+      <property name="toolTip">
+       <string>拥有后和小偷对话可以开启地下层</string>
+      </property>
+      <property name="text">
+       <string>小偷锄头</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_13">
+      <property name="text">
+       <string>宝石锄头：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_20">
+      <property name="toolTip">
+       <string>生命归0后增加2000血的道具，一场战斗可以多次触发该道具</string>
+      </property>
+      <property name="text">
+       <string>复活十字：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QCheckBox" name="key_check">
+      <property name="toolTip">
+       <string>拥有后可以进入17F密道</string>
+      </property>
+      <property name="text">
+       <string>仙子钥匙</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QSpinBox" name="yellow_edit">
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QSpinBox" name="blue_edit">
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSpinBox" name="red_edit">
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QSpinBox" name="nod_edit">
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QSpinBox" name="nok_edit">
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QSpinBox" name="bigchor_edit">
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QSpinBox" name="relive_edit">
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>151</width>
+     <height>221</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>能力值相关</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>等级：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>生命值：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>攻击力：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>防御力：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>敏捷：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>经验值：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>金币：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QSpinBox" name="lv_edit">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QSpinBox" name="hp_edit">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>9999999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSpinBox" name="atk_edit">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>9999999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QSpinBox" name="def_edit">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>9999999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QSpinBox" name="miss_edit">
+      <property name="maximum">
+       <number>9999999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QSpinBox" name="exp_edit">
+      <property name="maximum">
+       <number>9999999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QSpinBox" name="gold_edit">
+      <property name="maximum">
+       <number>9999999</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>250</y>
+     <width>151</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>存档相关</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="2" column="1">
+     <widget class="QSpinBox" name="nowfloor_edit">
+      <property name="minimum">
+       <number>-25</number>
+      </property>
+      <property name="maximum">
+       <number>110</number>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLabel" name="currenfloor_label">
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QSpinBox" name="x_edit">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>11</number>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_19">
+      <property name="text">
+       <string>存档名称：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QSpinBox" name="y_edit">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>11</number>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_17">
+      <property name="text">
+       <string>楼层：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_18">
+      <property name="toolTip">
+       <string>负数代表地下层，100~110代表魔塔楼层，请勿输入不存在的楼层！</string>
+      </property>
+      <property name="text">
+       <string>当前楼层：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_14">
+      <property name="toolTip">
+       <string>为了防止卡到墙里，请谨慎修改！</string>
+      </property>
+      <property name="text">
+       <string>勇者坐标：X：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_15">
+      <property name="toolTip">
+       <string>为了防止卡到墙里，请谨慎修改！</string>
+      </property>
+      <property name="text">
+       <string>勇者坐标：Y：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="2">
+     <widget class="QLineEdit" name="savename_edit"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>250</y>
+     <width>241</width>
+     <height>181</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>战斗相关</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4" columnstretch="8,1">
+    <item row="5" column="0">
+     <widget class="QLabel" name="label_31">
+      <property name="text">
+       <string>攻击动画：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QSpinBox" name="defnear_edit">
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_16">
+      <property name="text">
+       <string>每回合攻击次数：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QComboBox" name="atkanm_combobox">
+      <item>
+       <property name="text">
+        <string>空手</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>铁剑</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>银剑</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>骑士剑</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>圣剑</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>神圣剑</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSpinBox" name="atknear_edit">
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_21">
+      <property name="text">
+       <string>攻击临界值：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QSpinBox" name="atktimes_edit">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_23">
+      <property name="text">
+       <string>当前状态：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QComboBox" name="stat_combobox">
+      <item>
+       <property name="text">
+        <string>正常</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>中毒</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>衰弱</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_22">
+      <property name="text">
+       <string>防御临界值：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_32">
+      <property name="text">
+       <string>暴击几率：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QSpinBox" name="baoji_edit">
+      <property name="maximum">
+       <number>100</number>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_5">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>590</y>
+     <width>211</width>
+     <height>140</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>杂项</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="0" column="1">
+     <widget class="QSpinBox" name="shop3f_edit">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="label_26">
+      <property name="toolTip">
+       <string>最低楼层-25，最高楼层20，请勿输入不存在的楼层</string>
+      </property>
+      <property name="text">
+       <string>楼层传送器允许传送的楼层：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_25">
+      <property name="text">
+       <string>B5F商店加点金币：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_24">
+      <property name="text">
+       <string>3F商店加点金币：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QSpinBox" name="shopb5f_edit">
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>9999</number>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0" colspan="2">
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_28">
+        <property name="text">
+         <string>最低：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="minf_edit">
+        <property name="minimum">
+         <number>-25</number>
+        </property>
+        <property name="maximum">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_27">
+        <property name="text">
+         <string>~</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_29">
+        <property name="text">
+         <string>最高：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="maxf_edit">
+        <property name="maximum">
+         <number>20</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>700</y>
+     <width>158</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QPushButton" name="save_button">
+      <property name="text">
+       <string>确定</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="cancel_button">
+      <property name="text">
+       <string>取消</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QLabel" name="label_30">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>590</y>
+     <width>161</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="toolTip">
+    <string>cfw</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;By Python 3.10.2&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;GUI PySide6&lt;/p&gt;&lt;p align=&quot;right&quot;&gt;Author:cfw&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_6">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>440</y>
+     <width>401</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>章等级</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_6" columnstretch="1,1,4">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_33">
+      <property name="text">
+       <string>贤者之证：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QSpinBox" name="intter_edit">
+      <property name="maximum">
+       <number>100</number>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_36">
+      <property name="text">
+       <string>LV1=60;LV2=80;LV3=100</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_34">
+      <property name="text">
+       <string>霸者之证：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QSpinBox" name="king_edit">
+      <property name="maximum">
+       <number>30</number>
+      </property>
+      <property name="singleStep">
+       <number>10</number>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="label_37">
+      <property name="text">
+       <string>LV1=10;LV2=20;LV3=30</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_35">
+      <property name="text">
+       <string>勇者之证：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QSpinBox" name="brave_edit">
+      <property name="maximum">
+       <number>3</number>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLabel" name="label_38">
+      <property name="text">
+       <string>LV1=1;LV2=2;LV3=3</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>lv_edit</tabstop>
+  <tabstop>hp_edit</tabstop>
+  <tabstop>atk_edit</tabstop>
+  <tabstop>def_edit</tabstop>
+  <tabstop>miss_edit</tabstop>
+  <tabstop>exp_edit</tabstop>
+  <tabstop>gold_edit</tabstop>
+  <tabstop>yellow_edit</tabstop>
+  <tabstop>blue_edit</tabstop>
+  <tabstop>red_edit</tabstop>
+  <tabstop>nod_edit</tabstop>
+  <tabstop>nok_edit</tabstop>
+  <tabstop>bigchor_edit</tabstop>
+  <tabstop>relive_edit</tabstop>
+  <tabstop>fly_check</tabstop>
+  <tabstop>ddd_check</tabstop>
+  <tabstop>ice_check</tabstop>
+  <tabstop>magicdef_check</tabstop>
+  <tabstop>chor_check</tabstop>
+  <tabstop>key_check</tabstop>
+  <tabstop>x_edit</tabstop>
+  <tabstop>y_edit</tabstop>
+  <tabstop>nowfloor_edit</tabstop>
+  <tabstop>savename_edit</tabstop>
+  <tabstop>atktimes_edit</tabstop>
+  <tabstop>baoji_edit</tabstop>
+  <tabstop>atknear_edit</tabstop>
+  <tabstop>defnear_edit</tabstop>
+  <tabstop>stat_combobox</tabstop>
+  <tabstop>atkanm_combobox</tabstop>
+  <tabstop>shop3f_edit</tabstop>
+  <tabstop>shopb5f_edit</tabstop>
+  <tabstop>minf_edit</tabstop>
+  <tabstop>maxf_edit</tabstop>
+  <tabstop>save_button</tabstop>
+  <tabstop>cancel_button</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
